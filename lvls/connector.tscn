@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckpgp85o762iq"]
+
+[ext_resource type="Script" uid="uid://bvom6u7jlioh2" path="res://lvls/connector.gd" id="1_xpy62"]
+
+[node name="connector" type="Marker2D" groups=["connector"]]
+script = ExtResource("1_xpy62")

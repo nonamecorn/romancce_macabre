@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqswa0jpepfhd"]
+
+[ext_resource type="Script" uid="uid://14h56y7k687k" path="res://lvls/maps/level_generator.gd" id="1_85rvy"]
+[ext_resource type="Script" uid="uid://bhtxn4gw35at1" path="res://lvls/maps/camera_2d.gd" id="2_v2l6f"]
+[ext_resource type="PackedScene" uid="uid://co6ovanfqxkxu" path="res://lvls/rooms/room_2.tscn" id="3_1bbkc"]
+[ext_resource type="PackedScene" uid="uid://bd184ubagxtn5" path="res://lvls/rooms/room_1.tscn" id="3_6ad44"]
+[ext_resource type="PackedScene" uid="uid://cs8bhbu4slyi1" path="res://lvls/rooms/elevator.tscn" id="4_7q1tq"]
+[ext_resource type="PackedScene" uid="uid://cj42rivp6owbq" path="res://obj/entities/bodies/player/player.tscn" id="4_bmt3e"]
+
+[node name="map_1" type="Node2D"]
+script = ExtResource("1_85rvy")
+roomcount = 12
+rooms = Array[PackedScene]([ExtResource("3_1bbkc"), ExtResource("3_6ad44")])
+exit = ExtResource("4_7q1tq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_v2l6f")
+
+[node name="rooms" type="Node2D" parent="."]
+
+[node name="room1" parent="rooms" instance=ExtResource("4_7q1tq")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("4_bmt3e")]
+position = Vector2(252, 248)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

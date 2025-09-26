@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdadihphcfxvn"]
+
+[ext_resource type="Script" uid="uid://gg7umg32w61b" path="res://obj/components/gunpart_mothers/mother_barrel.gd" id="1_f15xi"]
+[ext_resource type="Texture2D" uid="uid://xr3dat5pn5n7" path="res://img/weapons/AKM_barrel.png" id="2_nyyen"]
+
+[node name="mother_barrel" type="Node2D"]
+script = ExtResource("1_f15xi")
+type = "BARREL"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 1)
+texture = ExtResource("2_nyyen")
+
+[node name="MUZZLE" type="Marker2D" parent="."]
+position = Vector2(17, 0)
+
+[node name="UNDERBARREL" type="Marker2D" parent="."]
+position = Vector2(4, 2)
+
+[node name="POF" type="Marker2D" parent="."]
+position = Vector2(17, 0)

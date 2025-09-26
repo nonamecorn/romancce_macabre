@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://vxlnckbeqm4y"]
+
+[ext_resource type="Script" uid="uid://cntldoics62xl" path="res://obj/components/bodies/mother_body.gd" id="1_6sgng"]
+[ext_resource type="Script" uid="uid://dlywsbpvsixtn" path="res://obj/components/fsm/StateMachine.gd" id="1_gc6wt"]
+[ext_resource type="Texture2D" uid="uid://drcugmcqv7woo" path="res://img/bodies/player/Player.png" id="2_0qefb"]
+[ext_resource type="Script" uid="uid://bgdw7ot2drj3i" path="res://obj/components/bodies/cursor.gd" id="4_6onur"]
+[ext_resource type="Script" uid="uid://clf3h2701i7ha" path="res://obj/components/bodies/hitbox.gd" id="4_bitvo"]
+[ext_resource type="Script" uid="uid://dxlhk6j41qrkb" path="res://obj/components/bodies/hand.gd" id="4_d2y0q"]
+[ext_resource type="Script" uid="uid://ca1364g8p6opd" path="res://obj/components/bodies/dead_state.gd" id="4_mhf4x"]
+[ext_resource type="Script" uid="uid://bkbambgoybnb0" path="res://obj/components/bodies/idle_state.gd" id="5_oh5xk"]
+[ext_resource type="Texture2D" uid="uid://bp86y3w6gsvt7" path="res://img/UI/crosshair.png" id="6_x7ed4"]
+[ext_resource type="Script" uid="uid://c422lqln78oq5" path="res://obj/components/bodies/pusher.gd" id="9_rmi40"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qefb"]
+radius = 5.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2y0q"]
+atlas = ExtResource("2_0qefb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6onur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2y0q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7ed4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7ed4"]
+radius = 18.0
+
+[node name="MotherBody" type="CharacterBody2D" groups=["body"]]
+collision_layer = 10
+script = ExtResource("1_6sgng")
+
+[node name="WallCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0qefb")
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_6onur")
+offset = Vector2(0, -12)
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_gc6wt")
+initial_state = NodePath("Idle")
+
+[node name="Dead" type="Node" parent="FSM" node_paths=PackedStringArray("entity", "sprite", "hitbox_coll", "wall_coll", "hand")]
+script = ExtResource("4_mhf4x")
+entity = NodePath("../..")
+sprite = NodePath("../../BodySprite")
+hitbox_coll = NodePath("../../Hitbox/Collision")
+wall_coll = NodePath("../../WallCollision")
+hand = NodePath("../../Hand")
+
+[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("entity")]
+script = ExtResource("5_oh5xk")
+entity = NodePath("../..")
+
+[node name="Hitbox" type="StaticBody2D" parent="."]
+position = Vector2(0, -15)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_bitvo")
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_x7ed4")
+
+[node name="cursor" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_x7ed4")
+script = ExtResource("4_6onur")
+
+[node name="Hand" type="Node2D" parent="." node_paths=PackedStringArray("cursor")]
+position = Vector2(0, -14)
+script = ExtResource("4_d2y0q")
+cursor = NodePath("../cursor")
+
+[node name="Handmarker" type="Marker2D" parent="Hand"]
+position = Vector2(7, 0)
+
+[node name="Pusher" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_rmi40")
+pushForce = 0.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher"]
+shape = SubResource("CircleShape2D_x7ed4")
+
+[connection signal="damaged" from="Hitbox" to="." method="_on_hitbox_damaged"]

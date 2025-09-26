@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://den217lp2soxx"]
+
+[ext_resource type="Texture2D" uid="uid://bbaalpi22ucyt" path="res://img/misc/Muzzle_flash.png" id="1_8tog2"]
+[ext_resource type="Script" uid="uid://dfjbgbbnb5k7p" path="res://obj/components/gunplay/muzzle_flash.gd" id="2_bx03t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx03t"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn631"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkwhg"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0mti"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulyv7"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48mxt"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56s17"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpeoc"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfy7u"]
+atlas = ExtResource("1_8tog2")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s784k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx03t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn631")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkwhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0mti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulyv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48mxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56s17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpeoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfy7u")
+}],
+"loop": false,
+"name": &"default",
+"speed": 80.0
+}]
+
+[node name="MuzzleFlash" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_s784k")
+autoplay = "default"
+frame = 8
+frame_progress = 1.0
+script = ExtResource("2_bx03t")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

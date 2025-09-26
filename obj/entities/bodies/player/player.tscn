@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj42rivp6owbq"]
+
+[ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_e42ip"]
+[ext_resource type="Script" uid="uid://bm3wjni3c3813" path="res://obj/entities/bodies/player/player.gd" id="2_kpwks"]
+[ext_resource type="Script" uid="uid://xh3m1kb2p3tb" path="res://obj/entities/bodies/player/player_walk_state.gd" id="3_mmb6a"]
+[ext_resource type="Script" uid="uid://cvf00qxxsh3gc" path="res://obj/entities/bodies/player/inventory_state.gd" id="4_w8mye"]
+[ext_resource type="Script" uid="uid://cyvxfk0l26uc5" path="res://obj/entities/bodies/player/player_hand.gd" id="5_kjt16"]
+[ext_resource type="Script" uid="uid://6qchh0308yjc" path="res://obj/entities/bodies/player/camera_2d.gd" id="5_w8mye"]
+[ext_resource type="PackedScene" uid="uid://wmbo868qv4i8" path="res://obj/components/gunplay/mother_melee.tscn" id="6_ie8h0"]
+
+[node name="Player" instance=ExtResource("1_e42ip")]
+script = ExtResource("2_kpwks")
+ACCELERATION = 1200
+
+[node name="FSM" parent="." index="2" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Walk")
+
+[node name="Walk" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("player")]
+script = ExtResource("3_mmb6a")
+player = NodePath("../..")
+
+[node name="Inventory" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("inventory")]
+script = ExtResource("4_w8mye")
+inventory = NodePath("")
+
+[node name="cursor" parent="." index="4"]
+visible = true
+HANDLING_SPEED = 10.0
+player_handled = true
+
+[node name="Hand" parent="." index="5"]
+script = ExtResource("5_kjt16")
+
+[node name="mother_melee" parent="Hand/Handmarker" index="0" instance=ExtResource("6_ie8h0")]
+player_handled = true
+
+[node name="Camera2D" type="Camera2D" parent="." index="6" node_paths=PackedStringArray("cursor")]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+script = ExtResource("5_w8mye")
+cursor = NodePath("../cursor")
+scope = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]

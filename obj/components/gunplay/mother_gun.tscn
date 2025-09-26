@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://i4hybqdscpxl"]
+
+[ext_resource type="Script" uid="uid://crm7pyrgmjy74" path="res://obj/components/gunplay/mother_gun.gd" id="1_ej2mt"]
+[ext_resource type="Texture2D" uid="uid://x3y7ptg8wqmg" path="res://img/weapons/AKM_anim.png" id="1_r86ty"]
+[ext_resource type="PackedScene" uid="uid://bs1w6vvok7e7h" path="res://obj/components/gunplay/bang.tscn" id="2_su81a"]
+[ext_resource type="Texture2D" uid="uid://cvbbdy33shxfd" path="res://img/weapons/AKM_mag.png" id="3_i8erx"]
+[ext_resource type="Texture2D" uid="uid://xr3dat5pn5n7" path="res://img/weapons/AKM_barrel.png" id="5_nl4wk"]
+
+[node name="mother_gun" type="Node2D"]
+script = ExtResource("1_ej2mt")
+
+[node name="firerate" type="Timer" parent="."]
+
+[node name="reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="single_shot" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="BANG" parent="." instance=ExtResource("2_su81a")]
+
+[node name="gun_container" type="Node2D" parent="."]
+position = Vector2(6, 0)
+
+[node name="AkmMag" type="Sprite2D" parent="gun_container"]
+position = Vector2(7, 3)
+texture = ExtResource("3_i8erx")
+
+[node name="gun_sprite" type="Sprite2D" parent="gun_container"]
+texture = ExtResource("1_r86ty")
+hframes = 6
+
+[node name="POF" type="Marker2D" parent="gun_container"]
+position = Vector2(17, -1.5)
+gizmo_extents = 5.0
+
+[node name="ejector" type="Marker2D" parent="gun_container"]
+position = Vector2(-5, -2)
+gizmo_extents = 5.0
+
+[node name="modules" type="Node2D" parent="gun_container"]
+
+[node name="MUZZLE" type="Marker2D" parent="gun_container/modules"]
+position = Vector2(17, -1)
+
+[node name="ATTACH" type="Marker2D" parent="gun_container/modules"]
+position = Vector2(5, 0)
+
+[node name="BARREL" type="Marker2D" parent="gun_container/modules"]
+
+[node name="AMMO" type="Node2D" parent="gun_container/modules"]
+
+[node name="BOLT" type="Node2D" parent="gun_container/modules"]
+
+[node name="AkmBarrel" type="Sprite2D" parent="gun_container/modules"]
+position = Vector2(16, 0)
+texture = ExtResource("5_nl4wk")
+
+[connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

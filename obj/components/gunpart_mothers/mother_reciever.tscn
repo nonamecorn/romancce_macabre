@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw5lhusyjp0m5"]
+
+[ext_resource type="PackedScene" uid="uid://bs1w6vvok7e7h" path="res://obj/components/gunplay/bang.tscn" id="1_25b8s"]
+[ext_resource type="Script" uid="uid://dr715d27fwv5i" path="res://obj/components/gunpart_mothers/mother_reciever.gd" id="1_e85sf"]
+[ext_resource type="Texture2D" uid="uid://x3y7ptg8wqmg" path="res://img/weapons/AKM_anim.png" id="2_pur8l"]
+[ext_resource type="PackedScene" uid="uid://trr3reel3k70" path="res://obj/components/gunpart_mothers/mother_mag.tscn" id="3_153fb"]
+[ext_resource type="PackedScene" uid="uid://bdadihphcfxvn" path="res://obj/components/gunpart_mothers/mother_barrel.tscn" id="4_sp1y2"]
+
+[node name="mother_reciever" type="Node2D"]
+script = ExtResource("1_e85sf")
+default_modules = Dictionary[String, Node2D]({
+"BARREL": ExtResource("4_sp1y2"),
+"MAG": ExtResource("3_153fb")
+})
+
+[node name="firerate" type="Timer" parent="."]
+
+[node name="reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="single_shot" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="BANG" parent="." instance=ExtResource("1_25b8s")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MAG" type="Marker2D" parent="."]
+position = Vector2(4, 0)
+
+[node name="mother_mag" parent="MAG" instance=ExtResource("3_153fb")]
+
+[node name="BARREL" type="Marker2D" parent="."]
+position = Vector2(8, -1)
+
+[node name="mother_barrel" parent="BARREL" instance=ExtResource("4_sp1y2")]
+
+[node name="SCOPE" type="Marker2D" parent="."]
+position = Vector2(1, -4)
+
+[node name="MOD" type="Marker2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_pur8l")
+hframes = 6

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://d4cukj261g55e"]
+
+[ext_resource type="Script" uid="uid://d0lgewwigfpyj" path="res://res_scripts/item.gd" id="1_7aq1k"]
+[ext_resource type="PackedScene" uid="uid://b41x20p6t7gqw" path="res://obj/guns/akm.tscn" id="1_u0brm"]
+[ext_resource type="Texture2D" uid="uid://dn26wxvu2e8r4" path="res://img/weapons/AKM_prev.png" id="2_5hevj"]
+
+[resource]
+script = ExtResource("1_7aq1k")
+item_name = "AK"
+item_description = ""
+type = "gun"
+ammount = 1
+max_stack = 1
+cost = 5
+sprite = ExtResource("2_5hevj")
+sprite_offset = Vector2(0, 0)
+weight = 1.0
+scene = ExtResource("1_u0brm")
+metadata/_custom_type_script = "uid://d0lgewwigfpyj"
