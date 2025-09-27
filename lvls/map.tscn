@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=4 format=3 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://b1dns23fsd240" path="res://icon.svg" id="1_gh6g1"]
+[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="2_gh6g1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gh6g1"]
 radius = 13.0
@@ -16,6 +17,8 @@ position = Vector2(329, 96)
 collision_layer = 0
 collision_mask = 3
 gravity_scale = 0.0
+linear_damp = 10.412
+angular_damp = 10.0
 
 [node name="Icon2" type="Sprite2D" parent="item"]
 position = Vector2(-2.75, 3.0000076)
@@ -25,3 +28,6 @@ texture = ExtResource("1_gh6g1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item"]
 position = Vector2(-2, 3)
 shape = SubResource("CircleShape2D_gh6g1")
+
+[node name="Player" parent="." instance=ExtResource("2_gh6g1")]
+position = Vector2(271, 133)

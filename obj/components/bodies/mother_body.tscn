@@ -1,51 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://vxlnckbeqm4y"]
 
 [ext_resource type="Script" uid="uid://dlywsbpvsixtn" path="res://obj/components/fsm/StateMachine.gd" id="1_gc6wt"]
+[ext_resource type="Script" uid="uid://cntldoics62xl" path="res://obj/components/bodies/mother_body.gd" id="1_k7qum"]
 [ext_resource type="Texture2D" uid="uid://drcugmcqv7woo" path="res://img/bodies/player/Player.png" id="2_0qefb"]
 [ext_resource type="Script" uid="uid://clf3h2701i7ha" path="res://obj/components/bodies/hitbox.gd" id="4_bitvo"]
 [ext_resource type="Script" uid="uid://dxlhk6j41qrkb" path="res://obj/components/bodies/hand.gd" id="4_d2y0q"]
 [ext_resource type="Script" uid="uid://ca1364g8p6opd" path="res://obj/components/bodies/dead_state.gd" id="4_mhf4x"]
 [ext_resource type="Script" uid="uid://bkbambgoybnb0" path="res://obj/components/bodies/idle_state.gd" id="5_oh5xk"]
 [ext_resource type="Script" uid="uid://c422lqln78oq5" path="res://obj/components/bodies/pusher.gd" id="9_rmi40"]
-
-[sub_resource type="GDScript" id="GDScript_734x7"]
-script/source = "extends CharacterBody2D
-#class_name Entity
-
-@export var MAX_SPEED = 100
-@export var ACCELERATION = 700
-@export var MAX_HP : float = 100
-@export var group : String = \"None\"
-var hp = MAX_HP
-var flipped = false
-@export var inventory = {
-	\"ARMOR\": null,
-	\"HELMET\": null,
-	\"WEAPON1\": null,
-	\"BOLT1\": null,
-	\"MAG1\": null,
-	\"ATTACH1\": null,
-	\"MUZZLE1\": null,
-	\"WEAPON2\": null,
-	\"BOLT2\": null,
-	\"MAG2\": null,
-	\"ATTACH2\": null,
-	\"MUZZLE2\": null,
-}
-
-func flip():
-	flipped = !flipped
-	$BodySprite.scale.x *= -1
-
-func _on_hitbox_damaged(damage: float, damage_vec : Vector2) -> void:
-	hp -= damage
-	take_knockback(damage_vec)
-	if hp <= 0:
-		$FSM.force_transition(\"Dead\")
-func take_knockback(knock_vec : Vector2):
-	
-	velocity += knock_vec
-"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qefb"]
 radius = 5.0
@@ -73,7 +35,7 @@ radius = 18.0
 
 [node name="MotherBody" type="CharacterBody2D" groups=["body"]]
 collision_layer = 10
-script = SubResource("GDScript_734x7")
+script = ExtResource("1_k7qum")
 
 [node name="WallCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
