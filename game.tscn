@@ -16,26 +16,41 @@ columns = 2
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2"]
 handle_input_locally = false
+size = Vector2i(574, 322)
 render_target_update_mode = 4
 
 [node name="map" parent="GridContainer/SubViewportContainer2/SubViewport" instance=ExtResource("1_80nbo")]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="GridContainer/SubViewportContainer2/SubViewport/map/Player" index="6"]
-remote_path = NodePath("../../../Camera2D")
-
 [node name="Camera2D" type="Camera2D" parent="GridContainer/SubViewportContainer2/SubViewport"]
-position = Vector2(271, 133)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(574, 322)
 render_target_update_mode = 4
 
 [node name="Camera2D2" type="Camera2D" parent="GridContainer/SubViewportContainer/SubViewport"]
 
-[editable path="GridContainer/SubViewportContainer2/SubViewport/map"]
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer3"]
+handle_input_locally = false
+size = Vector2i(574, 322)
+render_target_update_mode = 4
+
+[node name="Camera2D2" type="Camera2D" parent="GridContainer/SubViewportContainer3/SubViewport"]

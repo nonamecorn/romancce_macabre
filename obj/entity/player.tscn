@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcq71yyj1gyux"]
+[gd_scene load_steps=5 format=3 uid="uid://bcq71yyj1gyux"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_swto2"]
 [ext_resource type="Script" uid="uid://dbkti2uu350y8" path="res://obj/entity/player.gd" id="2_em4cg"]
+[ext_resource type="Resource" uid="uid://b6o1mgng34wcv" path="res://res/p1controls.tres" id="3_go1b0"]
 [ext_resource type="Script" uid="uid://b6xe7045h0k1s" path="res://obj/entity/walk_state.gd" id="3_jlet0"]
 
 [node name="Player" instance=ExtResource("1_swto2")]
 script = ExtResource("2_em4cg")
+moveset = ExtResource("3_go1b0")
 
 [node name="FSM" parent="." index="2" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Walk")
