@@ -1,9 +1,9 @@
 extends EntityHand
 
 var weapon_equiped : int = 0
-
-func _ready() -> void:
-	main.inventory_changed.connect(_on_weapon_changed)
+#
+#func _ready() -> void:
+	#main.inventory_changed.connect(_on_weapon_changed)
 
 func _on_weapon_changed(inventory):
 	if $Handmarker.get_child_count() > 0:

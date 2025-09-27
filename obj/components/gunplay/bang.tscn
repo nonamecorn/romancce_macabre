@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs1w6vvok7e7h"]
 
-[ext_resource type="Script" uid="uid://c0g1mbdlo6dgv" path="res://bang.gd" id="1_4w3ov"]
+[ext_resource type="Script" uid="uid://dl5jgyik4v1po" path="res://obj/components/gunplay/bang.gd" id="1_dkofj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hw0e8"]
 radius = 29.14
@@ -8,7 +8,7 @@ radius = 29.14
 [node name="BANG" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("1_4w3ov")
+script = ExtResource("1_dkofj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hw0e8")

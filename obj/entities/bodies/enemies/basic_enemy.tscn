@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1d6mlonb7nwc"]
+[gd_scene load_steps=14 format=3 uid="uid://b1d6mlonb7nwc"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_e4kk1"]
 [ext_resource type="Script" uid="uid://kmjfkbt1bg77" path="res://obj/entities/bodies/enemies/basic_enemy.gd" id="2_e0cwr"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://bsxhiboftuo1f" path="res://obj/entities/bodies/enemies/panic_state.gd" id="6_pwmcd"]
 [ext_resource type="Script" uid="uid://d2eil3heten32" path="res://obj/entities/bodies/enemies/surround_state.gd" id="7_u1xw8"]
 [ext_resource type="Script" uid="uid://xxrswto60gno" path="res://obj/entities/bodies/enemies/retreat_state.gd" id="8_04aog"]
-[ext_resource type="PackedScene" uid="uid://b41x20p6t7gqw" path="res://obj/guns/akm.tscn" id="9_04aog"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cgfm0"]
 radius = 152.013
@@ -91,8 +90,6 @@ nav_agent = NodePath("../../NavigationAgent2D")
 hand = NodePath("../../Hand")
 cursor = NodePath("../../cursor")
 perceptor = NodePath("../../Perceptor")
-
-[node name="AKM" parent="Hand/Handmarker" index="0" instance=ExtResource("9_04aog")]
 
 [node name="Perceptor" type="StaticBody2D" parent="." index="6" node_paths=PackedStringArray("entity", "gun_marker", "hand", "ray")]
 position = Vector2(0, -22)
