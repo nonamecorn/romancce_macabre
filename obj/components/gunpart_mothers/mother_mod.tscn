@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1vqe653v7c"]
-
-[ext_resource type="Script" uid="uid://bp4g7abjcndn3" path="res://obj/components/gunpart_mothers/mother_mod.gd" id="1_mkyuy"]
-
-[node name="mother_mod" type="Node2D"]
-script = ExtResource("1_mkyuy")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

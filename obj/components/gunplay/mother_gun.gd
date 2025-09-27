@@ -1,7 +1,5 @@
 extends Node2D
 
-
-@export var default_modules : Dictionary[String,Node2D]
 @export var max_spread: float
 @export var min_spread: float
 @export var max_ammo: int
@@ -76,18 +74,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reload"):
 		reload()
 
-func add_part(node_path : NodePath):
-	var node = load(node_path)
-	var node_inst = node.instantiate()
-	$gun_container/modules.find_child(node_inst.type).add_child(node_inst)
-
-func reset_part(part_name):
-	var slot = $gun_container/modules.find_child(part_name)
-	if slot.get_child_count() == 1:
-		slot.get_child(0).queue_free()
-	if slot is Marker2D:
-		var node_inst = default_modules[part_name].instantiate()
-		slot.add_child(node_inst)
 
 #func dispawn_facade(part_name):
 	#var slot = find_child(part_name)

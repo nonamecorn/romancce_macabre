@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv2ksh1rx7qlh"]
-
-[ext_resource type="Script" uid="uid://drcgb5ne3cvaw" path="res://obj/components/gunpart_mothers/mother_muzzle.gd" id="1_cqfs8"]
-
-[node name="mother_muzzle" type="Node2D"]
-script = ExtResource("1_cqfs8")

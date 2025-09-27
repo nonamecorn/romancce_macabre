@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjb1xhth25217"]
 
-[ext_resource type="Script" uid="uid://bcjw7gl61hcb5" path="res://obj/entities/proj/basic_bullet.gd" id="1_ui87o"]
-[ext_resource type="Script" uid="uid://n1mlij2x8fs5" path="res://obj/entities/proj/line_2d.gd" id="2_ektyk"]
+[ext_resource type="Script" uid="uid://bcjw7gl61hcb5" path="res://obj/components/proj/basic_bullet.gd" id="1_ui87o"]
+[ext_resource type="Script" uid="uid://n1mlij2x8fs5" path="res://obj/components/proj/line_2d.gd" id="2_ektyk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ui87o"]
 radius = 2.0
