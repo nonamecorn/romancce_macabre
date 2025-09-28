@@ -12,45 +12,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2"]
+disable_3d = true
 handle_input_locally = false
-size = Vector2i(574, 322)
+canvas_item_default_texture_filter = 0
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="map" parent="GridContainer/SubViewportContainer2/SubViewport" instance=ExtResource("1_80nbo")]
 
 [node name="Camera2D" type="Camera2D" parent="GridContainer/SubViewportContainer2/SubViewport"]
+zoom = Vector2(2, 2)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer"]
+disable_3d = true
 handle_input_locally = false
-size = Vector2i(574, 322)
-render_target_update_mode = 4
+canvas_item_default_texture_filter = 0
+size = Vector2i(2, 2)
+render_target_update_mode = 0
 
 [node name="Camera2D2" type="Camera2D" parent="GridContainer/SubViewportContainer/SubViewport"]
-
-[node name="SubViewportContainer3" type="SubViewportContainer" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer3"]
-handle_input_locally = false
-size = Vector2i(574, 322)
-render_target_update_mode = 4
-
-[node name="Camera2D2" type="Camera2D" parent="GridContainer/SubViewportContainer3/SubViewport"]
+zoom = Vector2(2, 2)

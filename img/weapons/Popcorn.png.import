@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b13yp6ied5aj6"
-path="res://.godot/imported/DGSceiling.png-1324bba5982bcd433a06e42b16153817.ctex"
+uid="uid://d1f5gn7ekgta4"
+path="res://.godot/imported/Popcorn.png-3716cbf807d469289ab69af52f10e554.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/levels/DGSceiling.png"
-dest_files=["res://.godot/imported/DGSceiling.png-1324bba5982bcd433a06e42b16153817.ctex"]
+source_file="res://img/weapons/Popcorn.png"
+dest_files=["res://.godot/imported/Popcorn.png-3716cbf807d469289ab69af52f10e554.ctex"]
 
 [params]
 

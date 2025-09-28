@@ -15,6 +15,14 @@ run/main_scene="uid://bmnwh28jj06kj"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Main="*res://other/main.gd"
+
+[global_group]
+
+pickable=""
+
 [input]
 
 l_click={

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg6oxeaj12pcu"
-path="res://.godot/imported/woodenfloor.png-e8118aca161610d328c2ce67f00e124b.ctex"
+uid="uid://b1ywcahoifejc"
+path="res://.godot/imported/Oguzok.png-bb1211fdf24255e497cba8a5063432fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/levels/woodenfloor.png"
-dest_files=["res://.godot/imported/woodenfloor.png-e8118aca161610d328c2ce67f00e124b.ctex"]
+source_file="res://img/bodies/player/Oguzok.png"
+dest_files=["res://.godot/imported/Oguzok.png-bb1211fdf24255e497cba8a5063432fd.ctex"]
 
 [params]
 

@@ -14,6 +14,7 @@ extends Node
 }
 
 func _ready() -> void:
+	Main.current_level = $GridContainer/SubViewportContainer2/SubViewport/map
 	players[2].viewport.world_2d = players[1].viewport.world_2d
 	for node in players.values():
 		var remote_trans := RemoteTransform2D.new()

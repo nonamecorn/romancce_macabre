@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://034qa4y2c8wb" path="res://obj/components/gunplay/mother_melee.gd" id="1_gqmvd"]
 [ext_resource type="PackedScene" uid="uid://bs1w6vvok7e7h" path="res://obj/components/gunplay/bang.tscn" id="2_ssyjj"]
-[ext_resource type="Texture2D" uid="uid://x3y7ptg8wqmg" path="res://img/weapons/AKM_anim.png" id="3_rwnw8"]
+[ext_resource type="Texture2D" uid="uid://b1dns23fsd240" path="res://icon.svg" id="3_ehmtg"]
 
 [sub_resource type="Animation" id="Animation_ssyjj"]
 length = 0.001
@@ -87,7 +87,8 @@ scale = Vector2(0.8, 0.95)
 [node name="melee_sprite" type="Sprite2D" parent="melee_container"]
 position = Vector2(-4, -14)
 rotation = 1.48004
-texture = ExtResource("3_rwnw8")
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("3_ehmtg")
 hframes = 6
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

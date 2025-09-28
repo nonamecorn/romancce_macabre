@@ -7,3 +7,4 @@ class_name PlayerControls #used for multiple players controls
 @export var right : String = "p1_right"
 @export var up : String = "p1_up"
 @export var down : String = "p1_down"
+@export var pick : String = "r_click"

@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://vxlnckbeqm4y"]
+[gd_scene load_steps=12 format=3 uid="uid://vxlnckbeqm4y"]
 
 [ext_resource type="Script" uid="uid://dlywsbpvsixtn" path="res://obj/components/fsm/StateMachine.gd" id="1_gc6wt"]
 [ext_resource type="Script" uid="uid://cntldoics62xl" path="res://obj/components/bodies/mother_body.gd" id="1_k7qum"]
-[ext_resource type="Texture2D" uid="uid://drcugmcqv7woo" path="res://img/bodies/player/Player.png" id="2_0qefb"]
 [ext_resource type="Script" uid="uid://clf3h2701i7ha" path="res://obj/components/bodies/hitbox.gd" id="4_bitvo"]
 [ext_resource type="Script" uid="uid://dxlhk6j41qrkb" path="res://obj/components/bodies/hand.gd" id="4_d2y0q"]
 [ext_resource type="Script" uid="uid://ca1364g8p6opd" path="res://obj/components/bodies/dead_state.gd" id="4_mhf4x"]
@@ -13,20 +12,7 @@
 radius = 5.0
 height = 18.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2y0q"]
-atlas = ExtResource("2_0qefb")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_6onur"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2y0q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7ed4"]
 

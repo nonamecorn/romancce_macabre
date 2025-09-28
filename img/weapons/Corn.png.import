@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://snk3eqxs4l8a"
-path="res://.godot/imported/concrete_plates.png-70383f089745ebfe949486ecdef40755.ctex"
+uid="uid://dc8ov8yckwlid"
+path="res://.godot/imported/Corn.png-3fd04c2b7d2c5f3695b3b49176bbf445.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/levels/concrete_plates.png"
-dest_files=["res://.godot/imported/concrete_plates.png-70383f089745ebfe949486ecdef40755.ctex"]
+source_file="res://img/weapons/Corn.png"
+dest_files=["res://.godot/imported/Corn.png-3fd04c2b7d2c5f3695b3b49176bbf445.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs8u5dasgalm3"
-path="res://.godot/imported/floor_tiles.png-07129d263e6571a24d1112c43eca60ed.ctex"
+uid="uid://etgg2wsfuorp"
+path="res://.godot/imported/RayGun.png-7486d44e1d8f7eefecd884c5a66d331c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/levels/floor_tiles.png"
-dest_files=["res://.godot/imported/floor_tiles.png-07129d263e6571a24d1112c43eca60ed.ctex"]
+source_file="res://img/weapons/RayGun.png"
+dest_files=["res://.godot/imported/RayGun.png-7486d44e1d8f7eefecd884c5a66d331c.ctex"]
 
 [params]
 

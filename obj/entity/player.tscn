@@ -1,13 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcq71yyj1gyux"]
+[gd_scene load_steps=11 format=3 uid="uid://bcq71yyj1gyux"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_swto2"]
 [ext_resource type="Script" uid="uid://dbkti2uu350y8" path="res://obj/entity/player.gd" id="2_em4cg"]
 [ext_resource type="Resource" uid="uid://b6o1mgng34wcv" path="res://res/p1controls.tres" id="3_go1b0"]
 [ext_resource type="Script" uid="uid://b6xe7045h0k1s" path="res://obj/entity/walk_state.gd" id="3_jlet0"]
+[ext_resource type="Texture2D" uid="uid://b1ywcahoifejc" path="res://img/bodies/player/Oguzok.png" id="4_ic86b"]
+[ext_resource type="Texture2D" uid="uid://d1f5gn7ekgta4" path="res://img/weapons/Popcorn.png" id="6_ddxsi"]
+[ext_resource type="Script" uid="uid://d4dpyp5mxmeq8" path="res://obj/entity/playerhand.gd" id="6_yeeoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddxsi"]
+atlas = ExtResource("4_ic86b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yeeoh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddxsi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddxsi"]
 
 [node name="Player" instance=ExtResource("1_swto2")]
 script = ExtResource("2_em4cg")
 moveset = ExtResource("3_go1b0")
+
+[node name="BodySprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_yeeoh")
 
 [node name="FSM" parent="." index="2" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Walk")
@@ -15,3 +38,21 @@ initial_state = NodePath("Walk")
 [node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player")]
 script = ExtResource("3_jlet0")
 player = NodePath("../..")
+
+[node name="Hand" parent="." index="4" node_paths=PackedStringArray("player")]
+script = ExtResource("6_yeeoh")
+player = NodePath("..")
+throw_force = 1000
+
+[node name="Handmarker" parent="Hand" index="0"]
+position = Vector2(25, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand/Handmarker" index="0"]
+texture = ExtResource("6_ddxsi")
+
+[node name="Area2D" type="Area2D" parent="Hand/Handmarker" index="1"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Handmarker/Area2D" index="0"]
+shape = SubResource("CircleShape2D_ddxsi")

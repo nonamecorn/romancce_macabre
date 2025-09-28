@@ -17,3 +17,4 @@ func _process(_delta: float) -> void:
 		flip()
 	if cursor_pos.x >= 0 and flipped:
 		flip()
+	
