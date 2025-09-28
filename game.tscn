@@ -6,6 +6,8 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_e2o6t")
 
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0

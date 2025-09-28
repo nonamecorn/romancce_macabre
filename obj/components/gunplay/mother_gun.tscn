@@ -1,38 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://i4hybqdscpxl"]
+[gd_scene load_steps=5 format=3 uid="uid://c10xvkfaxkmt4"]
 
-[ext_resource type="Script" uid="uid://crm7pyrgmjy74" path="res://obj/components/gunplay/mother_gun.gd" id="1_ej2mt"]
+[ext_resource type="PackedScene" uid="uid://d4fp7qb4kb8ll" path="res://obj/components/bodies/mother_item.tscn" id="1_tkfm0"]
+[ext_resource type="Script" uid="uid://c4v6wrnlrpym5" path="res://obj/components/gunplay/mother_gun.gd" id="2_i8erx"]
 [ext_resource type="PackedScene" uid="uid://bs1w6vvok7e7h" path="res://obj/components/gunplay/bang.tscn" id="2_su81a"]
-[ext_resource type="Texture2D" uid="uid://etgg2wsfuorp" path="res://img/weapons/RayGun.png" id="3_h1nqt"]
 
-[node name="mother_gun" type="Node2D"]
-script = ExtResource("1_ej2mt")
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g8w6"]
 
-[node name="firerate" type="Timer" parent="."]
+[node name="mother_gun" instance=ExtResource("1_tkfm0")]
+script = ExtResource("2_i8erx")
+max_spread = 0.0
+min_spread = 0.0
+max_ammo = 0
+num_of_pellets = 0
+bullet_obj = null
+brass_texture = null
+ver_recoil = 0.0
+hor_recoil = 0.0
+lifetime = 1.0
+noise_radius = 500.0
+player_handled = false
 
-[node name="reload" type="Timer" parent="."]
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_0g8w6")
+
+[node name="firerate" type="Timer" parent="." index="2"]
+
+[node name="reload" type="Timer" parent="." index="3"]
 one_shot = true
 
-[node name="single_shot" type="Timer" parent="."]
+[node name="single_shot" type="Timer" parent="." index="4"]
 wait_time = 0.1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 
-[node name="BANG" parent="." instance=ExtResource("2_su81a")]
-script = null
+[node name="BANG" parent="." index="6" instance=ExtResource("2_su81a")]
 
-[node name="gun_container" type="Node2D" parent="."]
-position = Vector2(6, 0)
-
-[node name="gun_sprite" type="Sprite2D" parent="gun_container"]
-texture = ExtResource("3_h1nqt")
-hframes = 5
-
-[node name="POF" type="Marker2D" parent="gun_container"]
-position = Vector2(17, -1.5)
+[node name="POF" type="Marker2D" parent="." index="7"]
 gizmo_extents = 5.0
 
-[node name="ejector" type="Marker2D" parent="gun_container"]
-position = Vector2(-5, -2)
+[node name="ejector" type="Marker2D" parent="." index="8"]
 gizmo_extents = 5.0
 
 [connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]

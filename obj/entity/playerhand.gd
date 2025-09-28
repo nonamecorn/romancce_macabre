@@ -14,6 +14,12 @@ func _process(delta: float) -> void:
 			pick_up()
 		else:
 			throw()
+	if Input.is_action_just_pressed(player.moveset.use):
+		if has_item:
+			item.use()
+	if Input.is_action_just_released(player.moveset.use):
+		if has_item:
+			item.stop_use()
 
 func throw():
 	#Main.current_level get_tree().current_scene
@@ -30,5 +36,6 @@ func pick_up():
 			body.freeze = true
 			body.global_position = $Handmarker.global_position
 			body.reparent($Handmarker)
+			body.rotation = 0.0
 			item = body
 			return

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://wr631gr8wuiw"]
+
+[ext_resource type="Script" uid="uid://bvx8fpqot22wy" path="res://obj/furniture/cooking_station_one.gd" id="1_4cqxw"]
+[ext_resource type="Texture2D" uid="uid://b1dns23fsd240" path="res://icon.svg" id="1_t7xp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7xp3"]
+size = Vector2(38, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cqxw"]
+size = Vector2(32, 32)
+
+[node name="cooking_station one" type="StaticBody2D"]
+z_index = -1
+script = ExtResource("1_4cqxw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t7xp3")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="input" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="input"]
+shape = SubResource("RectangleShape2D_t7xp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4cqxw")
+
+[connection signal="body_entered" from="input" to="." method="_on_input_body_entered"]
+[connection signal="body_exited" from="input" to="." method="_on_input_body_exited"]

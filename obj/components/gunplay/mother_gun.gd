@@ -1,5 +1,4 @@
-extends Node2D
-
+extends Item
 @export var max_spread: float
 @export var min_spread: float
 @export var max_ammo: int
@@ -57,23 +56,13 @@ func _ready() -> void:
 	rng.randomize()
 
 func get_pof() -> Vector2:
-	return $gun_container/POF.global_position
+	return $POF.global_position
 
-func _process(_delta: float) -> void:
-	if !player_handled: return
-	if !offhand:
-		if Input.is_action_just_pressed("l_click"):
-			start_fire()
-		if Input.is_action_just_released("l_click"):
-			stop_fire()
-	else:
-		if Input.is_action_just_pressed("r_click"):
-			start_fire()
-		if Input.is_action_just_released("r_click"):
-			stop_fire()
-	if Input.is_action_just_pressed("reload"):
-		reload()
+func use():
+	start_fire()
 
+func stop_use():
+	stop_fire()
 
 #func dispawn_facade(part_name):
 	#var slot = find_child(part_name)
@@ -157,13 +146,14 @@ func fire():
 	if state: return
 	
 	for i in num_of_pellets:
-		if ammo <= 0:
-			#gpuparticles.emitting = false
-			$AnimationPlayer.stop()
-			empty.emit()
-			return
-		ammo -= 1
-		display_ammo()
+		#if ammo <= 0:
+			##gpuparticles.emitting = false
+			#$AnimationPlayer.stop()
+			#empty.emit()
+			#reload()
+			#return
+		#ammo -= 1
+		#display_ammo()
 		#wear_down()
 		#if !silenced:
 			#$AnimationPlayer.play("fire")
@@ -175,7 +165,8 @@ func fire():
 		$BANG.bang()
 		var bullet_inst = bullet_obj.instantiate()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-spread, spread)
-		added_velocity = get_parent().get_parent().get_parent().velocity
+		if get_parent().get_parent().get_parent() is Entity:
+			added_velocity = get_parent().get_parent().get_parent().velocity
 		#bullet_inst.falloff = falloff
 		#bullet_inst.max_range = the_range     /////do this one!!!
 		#for strategy in bullet_strategies:
@@ -184,12 +175,12 @@ func fire():
 			#strategy.apply_strategy(bullet_inst, self)
 		bullet_inst.mod_vec = added_velocity
 		bullet_inst.lifetime = lifetime
-		get_tree().current_scene.call_deferred("add_child",bullet_inst)
+		Main.current_level.call_deferred("add_child",bullet_inst)
 		bullet_inst.global_position = get_pof()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees  + randf_range(-spread, spread)
 		
-		var recoil_vector = Vector2(-ver_recoil,randf_range(-hor_recoil, hor_recoil))
-		get_parent().get_parent().cursor.apply_recoil(recoil_vector)
+		#var recoil_vector = Vector2(-ver_recoil,randf_range(-hor_recoil, hor_recoil))
+		#get_parent().get_parent().cursor.apply_recoil(recoil_vector)
 	
 	#firing = true
 	#$single_shot.start()
@@ -208,16 +199,16 @@ func fire():
 
 func eject_brass():
 	var brass_inst = brass_obj.instantiate()
-	brass_inst.global_position = $gun_container/ejector.global_position
+	brass_inst.global_position = $ejector.global_position
 	brass_inst.global_rotation = global_rotation + rng.randf_range(-PI/8, PI/8)
 	brass_inst.get_child(0).texture = brass_texture
 	added_velocity = get_parent().get_parent().get_parent().velocity/2
-	get_tree().current_scene.call_deferred("add_child",brass_inst)
+	Main.current_level.call_deferred("add_child",brass_inst)
 	#brass_inst.init(added_velocity, lifetime)
 func muzzle_flash():
 	var muzzle_inst = preload("res://obj/components/gunplay/muzzle_flash.tscn").instantiate()
 	muzzle_inst.global_position = get_pof()
-	get_tree().current_scene.call_deferred("add_child",muzzle_inst)
+	Main.current_level.call_deferred("add_child",muzzle_inst)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if firing and anim_name == "fire":

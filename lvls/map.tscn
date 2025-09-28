@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=6 format=3 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://b1dns23fsd240" path="res://icon.svg" id="1_gh6g1"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="2_gh6g1"]
 [ext_resource type="Resource" uid="uid://cufo4bmevjb5w" path="res://res/p2controls.tres" id="3_pbpib"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gh6g1"]
-radius = 13.0
+[ext_resource type="PackedScene" uid="uid://wr631gr8wuiw" path="res://obj/furniture/cooking_station_one.tscn" id="4_3f4yu"]
+[ext_resource type="PackedScene" uid="uid://ddov8nv6ibh26" path="res://obj/guns/blaster.tscn" id="5_adog3"]
 
 [node name="map" type="Node2D"]
 
@@ -13,26 +12,21 @@ radius = 13.0
 position = Vector2(128, 45)
 texture = ExtResource("1_gh6g1")
 
-[node name="item" type="RigidBody2D" parent="." groups=["pickable"]]
-position = Vector2(329, 96)
-collision_layer = 2
-collision_mask = 3
-gravity_scale = 0.0
-linear_damp = 10.412
-angular_damp = 10.0
-
-[node name="Icon2" type="Sprite2D" parent="item"]
-position = Vector2(-2.75, 3.0000076)
-scale = Vector2(0.19921881, 0.18750009)
-texture = ExtResource("1_gh6g1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="item"]
-position = Vector2(-2, 3)
-shape = SubResource("CircleShape2D_gh6g1")
-
 [node name="Player" parent="." instance=ExtResource("2_gh6g1")]
 position = Vector2(271, 133)
 
 [node name="Player2" parent="." instance=ExtResource("2_gh6g1")]
 position = Vector2(364, 157)
 moveset = ExtResource("3_pbpib")
+
+[node name="cooking_station one" parent="." instance=ExtResource("4_3f4yu")]
+position = Vector2(144, 176)
+
+[node name="cooking_station one2" parent="." instance=ExtResource("4_3f4yu")]
+position = Vector2(144, 144)
+
+[node name="cooking_station one3" parent="." instance=ExtResource("4_3f4yu")]
+position = Vector2(176, 144)
+
+[node name="blaster" parent="." instance=ExtResource("5_adog3")]
+position = Vector2(304, 184)
