@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcq71yyj1gyux"]
+[gd_scene load_steps=12 format=3 uid="uid://bcq71yyj1gyux"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_swto2"]
 [ext_resource type="Script" uid="uid://dbkti2uu350y8" path="res://obj/entity/player.gd" id="2_em4cg"]
@@ -24,6 +24,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddxsi"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yeeoh"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Hand:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="Player" instance=ExtResource("1_swto2")]
 script = ExtResource("2_em4cg")
@@ -56,3 +64,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Handmarker/Area2D" index="0"]
 shape = SubResource("CircleShape2D_ddxsi")
+
+[node name="Label" type="Label" parent="." index="6"]
+offset_left = -31.0
+offset_top = -56.0
+offset_right = 28.0
+offset_bottom = -33.0
+text = "Oguzok"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="7"]
+replication_config = SubResource("SceneReplicationConfig_yeeoh")

@@ -10,6 +10,7 @@ func get_input_dir():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func physics_update(delta):
+	if !player.is_multiplayer_authority(): return
 	var input_vector = get_input_dir()
 	if input_vector != Vector2.ZERO:
 		player.velocity = player.velocity.move_toward(

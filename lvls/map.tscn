@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=7 format=3 uid="uid://bmnwh28jj06kj"]
 
+[ext_resource type="Script" uid="uid://rf5ofird172y" path="res://lvls/map.gd" id="1_04hbb"]
 [ext_resource type="Texture2D" uid="uid://b1dns23fsd240" path="res://icon.svg" id="1_gh6g1"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="2_gh6g1"]
 [ext_resource type="Resource" uid="uid://cufo4bmevjb5w" path="res://res/p2controls.tres" id="3_pbpib"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddov8nv6ibh26" path="res://obj/guns/blaster.tscn" id="5_adog3"]
 
 [node name="map" type="Node2D"]
+script = ExtResource("1_04hbb")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(128, 45)
@@ -30,3 +32,5 @@ position = Vector2(176, 144)
 
 [node name="blaster" parent="." instance=ExtResource("5_adog3")]
 position = Vector2(304, 184)
+linear_damp = 0.5
+angular_damp = 0.5

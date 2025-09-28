@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcfs4ebe8dfdv"]
+
+[ext_resource type="PackedScene" uid="uid://dtbitr7in6jqs" path="res://multiplayer/multiplayer_ui.tscn" id="1_c31cy"]
+[ext_resource type="Script" uid="uid://845fabss5e5q" path="res://multiplayer/network.gd" id="1_nhdnw"]
+[ext_resource type="Script" uid="uid://byisdptmdjijg" path="res://multiplayer/player_spawner.gd" id="3_uwdxy"]
+[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="4_50t2w"]
+[ext_resource type="PackedScene" uid="uid://ddov8nv6ibh26" path="res://obj/guns/blaster.tscn" id="5_0u810"]
+
+[node name="Multiplayer" type="Node2D"]
+script = ExtResource("1_nhdnw")
+
+[node name="MultiplayerUI" parent="." instance=ExtResource("1_c31cy")]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bcq71yyj1gyux", "uid://bjb1xhth25217")
+spawn_path = NodePath("..")
+script = ExtResource("3_uwdxy")
+network_player = ExtResource("4_50t2w")
+
+[node name="blaster" parent="." instance=ExtResource("5_0u810")]
+position = Vector2(186, 148)
