@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwcanfharflmw"]
+
+[ext_resource type="PackedScene" uid="uid://wr631gr8wuiw" path="res://obj/furniture/cooking_station_one.tscn" id="1_igfbc"]
+[ext_resource type="Texture2D" uid="uid://dg5typ8mlxo4m" path="res://img/levels/Table.png" id="2_80aho"]
+
+[node name="table" instance=ExtResource("1_igfbc")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_80aho")
+region_enabled = false
+region_rect = Rect2(0, 0, 0, 32)

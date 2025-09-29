@@ -1,4 +1,5 @@
 extends Item
+class_name Gun
 @export var max_spread: float
 @export var min_spread: float
 @export var max_ammo: int

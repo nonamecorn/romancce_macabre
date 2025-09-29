@@ -39,8 +39,9 @@ func on_collision(coll):
 	elif angle_between_vector_and_line(move_vec, coll.get_normal()) < 15:
 		move_vec /= 2
 		move_vec = move_vec.bounce(coll.get_normal())
+		rotation = move_vec.angle()
 		return
-	enabled = false
+	queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free()

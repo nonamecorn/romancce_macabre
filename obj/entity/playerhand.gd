@@ -20,9 +20,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released(player.moveset.use):
 		if has_item:
 			item.stop_use()
-
 func throw():
 	#Main.current_level get_tree().current_scene
+	item.out_hand.emit()
 	item.reparent(Main.current_level)
 	item.freeze = false
 	item.apply_impulse(($Handmarker.global_position - global_position).normalized() * throw_force)
@@ -33,6 +33,7 @@ func pick_up():
 	for body in $Handmarker/Area2D.get_overlapping_bodies():
 		if body.is_in_group("pickable"):
 			has_item = true
+			body.in_hand.emit()
 			body.freeze = true
 			body.global_position = $Handmarker.global_position
 			body.reparent($Handmarker)

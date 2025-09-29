@@ -9,8 +9,7 @@ size = Vector2(38, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cqxw"]
 size = Vector2(32, 32)
 
-[node name="cooking_station one" type="StaticBody2D"]
-z_index = -1
+[node name="cooking_station" type="StaticBody2D"]
 script = ExtResource("1_4cqxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
