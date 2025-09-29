@@ -208,7 +208,7 @@ func get_keyboard_or_joypad_inputs_for_action(action: String) -> Array[InputEven
 
 ## Get a text label for a given input
 func get_label_for_input(input: InputEvent) -> String:
-	if input == null: return ""
+	if input == null: return "None"
 
 	if input is InputEventKey:
 		if input.physical_keycode > 0 :

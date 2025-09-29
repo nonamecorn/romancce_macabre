@@ -4,6 +4,8 @@ class_name LineDrawer
 @export var player_connectors: Array[Control]
 @export var device_connectors: Array[Control]
 @export var selected_player: int = 0
+var line_color: Color = Color.WHITE
+var line_selected_color: Color = Color.YELLOW
 
 func _draw() -> void:
 	for i in range(4):

@@ -1,0 +1,198 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdrt5htmp78fb"]
+
+[ext_resource type="Theme" uid="uid://dwi5q30vl6eoe" path="res://settings/settings_menu.tres" id="1_60bht"]
+[ext_resource type="Script" uid="uid://c6to4dfopyvsq" path="res://settings/input_settings.gd" id="1_rn1vu"]
+[ext_resource type="Script" uid="uid://4u12plpat6y" path="res://settings/line_drawer.gd" id="2_60bht"]
+[ext_resource type="PackedScene" uid="uid://ccrf2o1mrfah2" path="res://settings/input_button.tscn" id="4_qdy15"]
+
+[node name="Input" type="PanelContainer" node_paths=PackedStringArray("line_drawer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_60bht")
+script = ExtResource("1_rn1vu")
+line_drawer = NodePath("MarginContainer/HBoxContainer/Players&Devices/Spacer")
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Players&Devices" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Players&Devices"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P1" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "P1"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="P2" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "P2"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="P3" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "P3"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="P4" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 128
+text = "P4"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P4"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices" node_paths=PackedStringArray("player_connectors", "device_connectors")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+script = ExtResource("2_60bht")
+player_connectors = [NodePath("../PlayerList/P1/Connector"), NodePath("../PlayerList/P2/Connector"), NodePath("../PlayerList/P3/Connector"), NodePath("../PlayerList/P4/Connector")]
+device_connectors = [NodePath("../DeviceList/Keyboard&Mouse/Connector"), NodePath("../DeviceList/Joystick0/Connector"), NodePath("../DeviceList/Joystick1/Connector"), NodePath("../DeviceList/Joystick2/Connector"), NodePath("../DeviceList/Joystick3/Connector")]
+
+[node name="DeviceList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Players&Devices"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Keyboard&Mouse" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Keyboard & Mouse"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Keyboard&Mouse"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Joystick0" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Joystick 0"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick0"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Joystick1" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Joystick 1"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick1"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Joystick2" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Joystick 2"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Joystick3" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Joystick 3"
+
+[node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="Inputs" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Inputs"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Inputs/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="InputButton" parent="MarginContainer/HBoxContainer/Inputs/ScrollContainer/ActionList" instance=ExtResource("4_qdy15")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Inputs"]
+layout_mode = 2
