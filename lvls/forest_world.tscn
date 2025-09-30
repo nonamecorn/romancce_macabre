@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv2jdxyueipua"]
+
+[ext_resource type="Script" uid="uid://lplryt2xix1x" path="res://lvls/forest_world.gd" id="1_jor57"]
+[ext_resource type="Texture2D" uid="uid://bv53c1h6ky2iy" path="res://img/levels/forest_floor_mock.png" id="2_viigf"]
+[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="3_viigf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuftf"]
+texture = ExtResource("2_viigf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h2oq5"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_nuftf")
+
+[sub_resource type="MultiMesh" id="MultiMesh_jor57"]
+
+[node name="ForestWorld" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_jor57")
+size_power = 10
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = SubResource("TileSet_h2oq5")
+
+[node name="Trees" type="MultiMeshInstance2D" parent="."]
+multimesh = SubResource("MultiMesh_jor57")
+
+[node name="Player" parent="." instance=ExtResource("3_viigf")]
+MAX_SPEED = 10000
+ACCELERATION = 1000000000
+
+[node name="BodySprite" parent="Player" index="1"]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.2, 0.2)
+
+[node name="Polygon2D" type="Polygon2D" parent="Player"]
+polygon = PackedVector2Array(-11, -32, -10, 1, 8, 0, 9, -31)
+uv = PackedVector2Array(-45, 4, -56, 121, 8, 126, 20, -7)
+
+[editable path="Player"]
