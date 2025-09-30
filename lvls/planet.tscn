@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv2jdxyueipua"]
+
+[ext_resource type="Script" uid="uid://b5p65u5s3e6p8" path="res://lvls/planet.gd" id="1_vdqcl"]
+[ext_resource type="Texture2D" uid="uid://bv53c1h6ky2iy" path="res://img/levels/forest_floor_mock.png" id="2_nxbas"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuftf"]
+texture = ExtResource("2_nxbas")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h2oq5"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_nuftf")
+
+[node name="Planet" type="Node2D"]
+script = ExtResource("1_vdqcl")
+
+[node name="floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = SubResource("TileSet_h2oq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
