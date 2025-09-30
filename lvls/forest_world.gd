@@ -2,7 +2,7 @@ extends Node
 class_name ForestWorld
 
 ## 
-@export_range(5, 16, 1) var size_power: int = 9
+@export_range(5, 16, 1) var size_power: int = 10
 
 ## If left as 0, the current seed would be unix_timestamp
 @export var _seed: int = randi()
@@ -51,10 +51,11 @@ func _ready() -> void:
 	## Wait for OS to gather some space for the array.
 	call_deferred("_generate_and_paint")
 
-## Assuming the array is square
+## Get index from vector, assuming the array is a square matrix
 func _2d_to_1d(x: int, y: int, size: int = _size_square) -> int:
 	return y * size + x
 
+## Main Generation function
 func _generate_and_paint() -> void:
 	var size = _size_square
 	_height_map = _diamond_square(size, ds_roughness, _seed)

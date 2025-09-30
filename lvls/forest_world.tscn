@@ -21,7 +21,6 @@ sources/0 = SubResource("TileSetAtlasSource_nuftf")
 [node name="ForestWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jor57")
-size_power = 10
 
 [node name="Ground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0)
