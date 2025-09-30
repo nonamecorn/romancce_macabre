@@ -5,8 +5,19 @@ extends EntityHand
 @export var throw_force = 1000
 var item : RigidBody2D
 
+
 func _process(delta: float) -> void:
-	super(delta)
+	var pos : Vector2
+	if player.moveset.keyboard:
+		var cursor_pos = get_global_mouse_position()
+		pos = cursor_pos - global_position
+	else:
+		pos = Input.get_vector(player.moveset.left, player.moveset.right, player.moveset.up, player.moveset.down)
+	global_rotation = atan2(pos.y, pos.x)
+	if pos.x < 0 and !flipped:
+		flip()
+	if pos.x >= 0 and flipped:
+		flip()
 	if Input.is_action_just_pressed(player.moveset.pick):
 		#print("dsgsf")
 		if !has_item():
