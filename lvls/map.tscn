@@ -136,6 +136,9 @@ moveset = ExtResource("3_pbpib")
 [node name="blaster" parent="." groups=["pickable"] instance=ExtResource("5_adog3")]
 position = Vector2(256, 128)
 
+[node name="blaster2" parent="." groups=["pickable"] instance=ExtResource("5_adog3")]
+position = Vector2(320, 208)
+
 [node name="corn" parent="." groups=["pickable"] instance=ExtResource("8_t03gw")]
 position = Vector2(240, 192)
 res = ExtResource("9_x02vt")
