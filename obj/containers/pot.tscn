@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkrh617ywrwoe"]
+
+[ext_resource type="PackedScene" uid="uid://cro5ey07r4fn1" path="res://obj/components/bodies/mother_container.tscn" id="1_k3oes"]
+[ext_resource type="Script" uid="uid://be2lrghh8p3hv" path="res://obj/containers/pot.gd" id="2_4q4od"]
+[ext_resource type="Script" uid="uid://bviytqsusqyl3" path="res://res_scripts/Recipe.gd" id="3_ccxjv"]
+[ext_resource type="Texture2D" uid="uid://d1f5gn7ekgta4" path="res://img/weapons/Popcorn.png" id="4_acg10"]
+[ext_resource type="Resource" uid="uid://ndgd72s37f1f" path="res://res/recipes/test_recipe.tres" id="4_vgtr3"]
+
+[node name="pot" instance=ExtResource("1_k3oes")]
+script = ExtResource("2_4q4od")
+recipes = Array[ExtResource("3_ccxjv")]([ExtResource("4_vgtr3")])
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="3"]
+offset_left = -16.0
+offset_top = -54.0
+offset_right = 24.0
+offset_bottom = -14.0
+step = 0.1
+fill_mode = 4
+texture_progress = ExtResource("4_acg10")

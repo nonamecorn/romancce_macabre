@@ -1,17 +1,30 @@
 extends StaticBody2D
 
-var item : Item
+class_name Station
 
-func _on_input_body_entered(body: Node2D) -> void:
+var item : Item = null
+@export var offset : Vector2 = Vector2(0, -24)
+
+signal item_changed
+
+func _on_input_area_entered(area: Area2D) -> void:
+	var body = area.get_parent()
 	if body is Item:
 		call_deferred("attach", body)
 
 func attach(body : Item):
-	body.freeze = true
-	body.global_position = global_position
+	if item or body.get_parent().name == "Item": return
 	item = body
+	body.freeze = true
+	body.global_position = global_position + offset
+	body.global_rotation = 0.0
+	item_changed.emit()
+	#await  get_tree().physics_frame
+	
 
 
-func _on_input_body_exited(body: Node2D) -> void:
+func _on_input_area_exited(area: Area2D) -> void:
+	var body = area.get_parent()
 	if body == item:
-		item == null
+		item = null
+		item_changed.emit()

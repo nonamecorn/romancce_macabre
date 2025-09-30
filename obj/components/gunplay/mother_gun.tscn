@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c10xvkfaxkmt4"]
+[gd_scene load_steps=6 format=3 uid="uid://c10xvkfaxkmt4"]
 
 [ext_resource type="PackedScene" uid="uid://d4fp7qb4kb8ll" path="res://obj/components/bodies/mother_item.tscn" id="1_tkfm0"]
 [ext_resource type="Script" uid="uid://c4v6wrnlrpym5" path="res://obj/components/gunplay/mother_gun.gd" id="2_i8erx"]
 [ext_resource type="PackedScene" uid="uid://bs1w6vvok7e7h" path="res://obj/components/gunplay/bang.tscn" id="2_su81a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g8w6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1nqt"]
+radius = 11.0
 
 [node name="mother_gun" instance=ExtResource("1_tkfm0")]
 script = ExtResource("2_i8erx")
@@ -40,6 +43,10 @@ gizmo_extents = 5.0
 
 [node name="ejector" type="Marker2D" parent="." index="8"]
 gizmo_extents = 5.0
+
+[node name="CollisionShape2D" parent="Pickable_Area" index="0"]
+shape = SubResource("CircleShape2D_h1nqt")
+debug_color = Color(0.4529546, 0.5821412, 0.35380146, 0.41960785)
 
 [connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

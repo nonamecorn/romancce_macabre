@@ -1,29 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://cro5ey07r4fn1"]
+[gd_scene load_steps=7 format=3 uid="uid://cro5ey07r4fn1"]
 
 [ext_resource type="PackedScene" uid="uid://d4fp7qb4kb8ll" path="res://obj/components/bodies/mother_item.tscn" id="1_5ngv6"]
 [ext_resource type="Script" uid="uid://1y8sq5c8rcog" path="res://obj/components/bodies/mother_container.gd" id="2_2w4cw"]
 [ext_resource type="Texture2D" uid="uid://bk6o06e7lcv3p" path="res://img/items/pot.png" id="3_0eeku"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogf5k"]
+radius = 14.035668
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0eeku"]
 radius = 11.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ngv6"]
-size = Vector2(38, 39)
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8y1w"]
+radius = 13.038404
 
 [node name="mother_container" instance=ExtResource("1_5ngv6")]
 script = ExtResource("2_2w4cw")
 
-[node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource("CircleShape2D_0eeku")
-
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("3_0eeku")
-
-[node name="input" type="Area2D" parent="." index="2"]
+[node name="input" type="Area2D" parent="." index="0"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="input" index="0"]
-shape = SubResource("RectangleShape2D_5ngv6")
+shape = SubResource("CircleShape2D_ogf5k")
+debug_color = Color(0.75803703, 0.4100939, 0.524701, 0.41960785)
 
-[connection signal="body_entered" from="input" to="." method="_on_input_body_entered"]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_0eeku")
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("3_0eeku")
+
+[node name="Pickable_Area" parent="." index="3"]
+monitoring = false
+
+[node name="CollisionShape2D" parent="Pickable_Area" index="0"]
+shape = SubResource("CircleShape2D_y8y1w")
+debug_color = Color(0.36464438, 0.6109761, 0.25006577, 0.41960785)
+
+[connection signal="area_entered" from="input" to="." method="_on_input_area_entered"]

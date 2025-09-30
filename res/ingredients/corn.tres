@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://ddpiitpjty5uw"]
+
+[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="1_vi5rg"]
+[ext_resource type="Texture2D" uid="uid://vcreax2klfli" path="res://img/bodies/enemies/Corn.png" id="2_wjwfc"]
+
+[resource]
+script = ExtResource("1_vi5rg")
+name = "Corn"
+texture = ExtResource("2_wjwfc")
+metadata/_custom_type_script = "uid://bsjox2yixf52y"

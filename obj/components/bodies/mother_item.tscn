@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b3jqesmvmltlr" path="res://obj/components/bodies/mother_item.gd" id="1_ulkpw"]
 
-[node name="mother_item" type="RigidBody2D" groups=["pickable"]]
+[node name="mother_item" type="RigidBody2D"]
 z_index = 1
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 gravity_scale = 0.0
@@ -14,3 +15,9 @@ script = ExtResource("1_ulkpw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Pickable_Area" type="Area2D" parent="." groups=["pickable"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable_Area"]

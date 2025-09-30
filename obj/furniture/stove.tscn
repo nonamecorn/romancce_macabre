@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dehjv4ikg52cs"]
+
+[ext_resource type="PackedScene" uid="uid://wr631gr8wuiw" path="res://obj/furniture/cooking_station_one.tscn" id="1_r2xep"]
+[ext_resource type="Script" uid="uid://b4v4uvt7w2wwh" path="res://obj/furniture/stove.gd" id="2_v2j5d"]
+[ext_resource type="Texture2D" uid="uid://c6d2gt6vs1wld" path="res://img/levels/Stove.png" id="2_wtdm3"]
+
+[node name="stove" instance=ExtResource("1_r2xep")]
+script = ExtResource("2_v2j5d")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_wtdm3")
