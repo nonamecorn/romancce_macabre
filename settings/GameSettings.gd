@@ -16,7 +16,7 @@ enum DeviceID {
 func _ready() -> void:
 	pass
 
-const PLAYER_ACTION_PREFIX = "p%d" ## The actions should be in `"pX_action"` format
+const PLAYER_ACTION_PREFIX = "p%d_" ## The actions should be in `"pX_action"` format
 ## Returns all action [StringName]s for a specific player.
 ## Converts the 0-index [param player_id] to a 1-index
 func get_actions_by_player(player_id: int) -> Array[StringName]:

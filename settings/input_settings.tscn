@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdrt5htmp78fb"]
+[gd_scene load_steps=6 format=3 uid="uid://bdrt5htmp78fb"]
 
 [ext_resource type="Theme" uid="uid://dwi5q30vl6eoe" path="res://settings/settings_menu.tres" id="1_60bht"]
 [ext_resource type="Script" uid="uid://c6to4dfopyvsq" path="res://settings/input_settings.gd" id="1_rn1vu"]
 [ext_resource type="Script" uid="uid://4u12plpat6y" path="res://settings/line_drawer.gd" id="2_60bht"]
+[ext_resource type="Script" uid="uid://dgj8r1ebexplq" path="res://settings/unpress_neighbours.gd" id="3_1j6e3"]
 [ext_resource type="PackedScene" uid="uid://ccrf2o1mrfah2" path="res://settings/input_button.tscn" id="4_qdy15"]
 
 [node name="Input" type="PanelContainer" node_paths=PackedStringArray("line_drawer")]
@@ -33,11 +34,14 @@ size_flags_horizontal = 3
 [node name="PlayerList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Players&Devices"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("3_1j6e3")
 
 [node name="P1" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 128
+toggle_mode = true
+button_pressed = true
 text = "P1"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P1"]
@@ -54,6 +58,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 128
+toggle_mode = true
 text = "P2"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P2"]
@@ -70,6 +75,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 128
+toggle_mode = true
 text = "P3"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P3"]
@@ -86,6 +92,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 128
+toggle_mode = true
 text = "P4"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/PlayerList/P4"]
@@ -108,11 +115,13 @@ device_connectors = [NodePath("../DeviceList/Keyboard&Mouse/Connector"), NodePat
 [node name="DeviceList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Players&Devices"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("3_1j6e3")
 
 [node name="Keyboard&Mouse" type="Button" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
+toggle_mode = true
 text = "Keyboard & Mouse"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Keyboard&Mouse"]
@@ -126,6 +135,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
+toggle_mode = true
 text = "Joystick 0"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick0"]
@@ -139,6 +149,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
+toggle_mode = true
 text = "Joystick 1"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick1"]
@@ -152,6 +163,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
+toggle_mode = true
 text = "Joystick 2"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick2"]
@@ -165,6 +177,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
+toggle_mode = true
 text = "Joystick 3"
 
 [node name="Connector" type="Control" parent="MarginContainer/HBoxContainer/Players&Devices/DeviceList/Joystick3"]

@@ -8,55 +8,119 @@ extends PanelContainer
 @export var line_color: Color = Color.WHITE
 @export var line_selected_color: Color = Color.YELLOW
 
+@onready var action_list = $"MarginContainer/HBoxContainer/Inputs/ScrollContainer/ActionList"
+@onready var player_list = $"MarginContainer/HBoxContainer/Players&Devices/PlayerList"
+@onready var device_list = $"MarginContainer/HBoxContainer/Players&Devices/DeviceList"
+
 @onready var input_button_prefab: PackedScene = preload("res://settings/input_button.tscn")
-@onready var action_list: VBoxContainer = $MarginContainer/HBoxContainer/Inputs/ScrollContainer/ActionList
+var _is_remapping: bool = false
+var _action_to_remap: StringName
+var _remapping_button: BaseButton
 
 func _ready() -> void:
+	_bind_buttons_pressed_to_idx(player_list, _on_player_select)
+	_bind_buttons_pressed_to_idx(device_list, _on_device_select)
 	if line_drawer:
 		line_drawer.line_color = line_color
 		line_drawer.line_selected_color = line_selected_color
+	_on_player_select(selected_player)
 	_load_action_list(selected_player)
+
+## Binds button to a handler with it's idx as argument.
+## [br]⚠ The container should only contain buttons, and they should be strictly in order for this to work.
+func _bind_buttons_pressed_to_idx(container: Control, callable: Callable):
+	for i in range(container.get_child_count()):
+		var child = container.get_child(i)
+		if child is BaseButton:
+			(child as BaseButton).pressed.connect(callable.bind(i))
 
 func _load_action_list(player_id: int = 0) -> void:
 	for item in action_list.get_children():
 		item.queue_free()
 
 	for action in GameSettings.get_actions_by_player(player_id):
-		var button = input_button_prefab.instantiate()
+		var button: BaseButton = input_button_prefab.instantiate() as BaseButton
 		var action_label = button.get_node(^"MarginContainer/HBoxContainer/LabelAction")
 		var input_label = button.get_node(^"MarginContainer/HBoxContainer/LabelInput")
-
-		action_label.text = action
-
-		#var events = InputMap.action_get_events(action)
-		#if events.size() > 0:
-			#input_label.text = events[0].as_text().trim_suffix(" (Physical)")
-		#else:
-			#input_label.text = "None"
-		input_label.text = InputHelper.get_label_for_input(InputHelper.get_keyboard_input_for_action(action))
+		
+		## Strips the player prefix & capitalizes the action label.
+		action_label.text = action.trim_prefix(GameSettings.PLAYER_ACTION_PREFIX % (player_id + 1)).capitalize()
+		input_label.text = _get_input_label(action, player_id)
 
 		action_list.add_child(button)
+		button.pressed.connect(_on_input_button_pressed.bind(button, action))
 
-func _on_player_select(extra_arg_0: int) -> void:
-	selected_player = extra_arg_0
+func _get_input_label(action: StringName, player_id: int) -> String:
+	var event: InputEvent = (InputHelper.get_keyboard_input_for_action(action)
+			if GameSettings.player_to_device_id[player_id] == GameSettings.DeviceID.KEYBOARD_MOUSE
+			else InputHelper.get_joypad_input_for_action(action))
+	return InputHelper.get_label_for_input(event) if event else "None"
+
+func _on_input_button_pressed(button: BaseButton, action: StringName) -> void:
+	if !_is_remapping:
+		_is_remapping = true
+		_action_to_remap = action
+		_remapping_button = button
+		button.get_node(^"MarginContainer/HBoxContainer/LabelInput").text = "Press key to bind ..."
+
+func _exit_remapping() -> void:
+	_is_remapping = false
+	_remapping_button.get_node(^"MarginContainer/HBoxContainer/LabelInput").text = _get_input_label(_action_to_remap, selected_player)
+
+func _input(event: InputEvent) -> void:
+	if !_is_remapping:
+		return
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		_exit_remapping()
+		accept_event()
+		return
+	if (GameSettings.player_to_device_id[selected_device] == InputHelper.get_device_index_from_event(event) + 1
+	and	not (event is InputEventJoypadMotion and abs(event.axis_value) < InputHelper.deadzone)):
+		InputHelper.set_keyboard_or_joypad_input_for_action(_action_to_remap, event)
+		_exit_remapping()
+		accept_event()
+
+## Player button handler with 0-indexed [param player_id]
+func _on_player_select(player_id: int) -> void:
+	if _is_remapping:
+		return
+	selected_player = player_id
 	if line_drawer:
-		line_drawer.selected_player = extra_arg_0
-	selected_device = GameSettings.player_to_device_id[extra_arg_0]
-	_load_action_list(extra_arg_0)
+		line_drawer.selected_player = player_id
+	device_list.get_child(selected_device).button_pressed = false
+	selected_device = GameSettings.player_to_device_id[player_id]
+	device_list.get_child(selected_device).button_pressed = true
+	
+	_load_action_list(player_id)
 
-func _on_device_select(extra_arg_0: int) -> void:
+## Device button handler with [enum GameSettings.DeviceID]
+func _on_device_select(device_id: GameSettings.DeviceID) -> void:
+	if _is_remapping:
+		return
 	var swap_with_player = -1
 	for i in range(4):
-		if GameSettings.player_to_device_id[i] == extra_arg_0:
+		if GameSettings.player_to_device_id[i] == device_id:
 			if selected_player == i:
 				return
 			swap_with_player = i
 			break
+	var device_temp = GameSettings.player_to_device_id[selected_player]
+	GameSettings.player_to_device_id[selected_player] = device_id
 	if swap_with_player != -1:
-		var device_temp = GameSettings.player_to_device_id[selected_player]
-		GameSettings.player_to_device_id[selected_player] = extra_arg_0
 		GameSettings.player_to_device_id[swap_with_player] = device_temp
-	else:
-		GameSettings.player_to_device_id[selected_player] = extra_arg_0
-	# TODO load config
+		_player_set_device_id(swap_with_player, device_temp)
+	
+	selected_device = device_id
+	_player_set_device_id(selected_player, device_id)
 	_load_action_list(selected_player)
+	print(InputMap.action_get_events("p1_left"))
+
+func _player_set_device_id(player_id: int, device_id: int) -> void:
+	var actions = GameSettings.get_actions_by_player(player_id)
+	for a in actions:
+		var events = InputMap.action_get_events(a)
+		for e in events:
+			if e is InputEventJoypadButton or e is InputEventJoypadMotion or e is InputEventKey or e is InputEventMouse:
+				InputMap.action_erase_event(a, e)
+				e.device = device_id - 1 if not (e is InputEventKey or e is InputEventMouse) else device_id
+				InputHelper.set_keyboard_or_joypad_input_for_action(a, e, false)

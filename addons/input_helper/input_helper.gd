@@ -186,7 +186,7 @@ func reset_all_actions() -> void:
 func set_keyboard_or_joypad_input_for_action(action: String, event: InputEvent, swap_if_taken: bool = true) -> void:
 	if event is InputEventKey or event is InputEventMouse:
 		set_keyboard_input_for_action(action, event, swap_if_taken)
-	elif event is InputEventJoypadButton:
+	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		set_joypad_input_for_action(action, event, swap_if_taken)
 
 
@@ -208,7 +208,7 @@ func get_keyboard_or_joypad_inputs_for_action(action: String) -> Array[InputEven
 
 ## Get a text label for a given input
 func get_label_for_input(input: InputEvent) -> String:
-	if input == null: return "None"
+	if input == null: return ""
 
 	if input is InputEventKey:
 		if input.physical_keycode > 0 :

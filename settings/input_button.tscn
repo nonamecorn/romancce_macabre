@@ -1,12 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccrf2o1mrfah2"]
+[gd_scene load_steps=2 format=3 uid="uid://ccrf2o1mrfah2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6s3f"]
-bg_color = Color(0, 0, 0, 0.39215687)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66e8n"]
-bg_color = Color(1, 1, 1, 0.39215687)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sub3e"]
+[ext_resource type="Theme" uid="uid://dwi5q30vl6eoe" path="res://settings/settings_menu.tres" id="1_66e8n"]
 
 [node name="InputButton" type="Button"]
 custom_minimum_size = Vector2(0, 64)
@@ -16,10 +10,7 @@ offset_bottom = 8.0
 grow_horizontal = 2
 size_flags_vertical = 3
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_b6s3f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_66e8n")
-theme_override_styles/hover = SubResource("StyleBoxFlat_66e8n")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sub3e")
+theme = ExtResource("1_66e8n")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
