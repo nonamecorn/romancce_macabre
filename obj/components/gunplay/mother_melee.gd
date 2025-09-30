@@ -18,9 +18,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if !player_handled: return
-	if Input.is_action_just_pressed("l_click"):
+	if Input.is_action_just_pressed(""):
 		start_fire()
-	if Input.is_action_just_released("l_click"):
+	if Input.is_action_just_released(""):
 		stop_fire()
 
 func start_fire():

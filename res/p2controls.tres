@@ -5,8 +5,11 @@
 [resource]
 script = ExtResource("1_8xo1b")
 player_index = 2
+keyboard = false
 left = "p2_left"
 right = "p2_right"
 up = "p2_up"
 down = "p2_down"
+pick = "p2_grab"
+use = "p2_use"
 metadata/_custom_type_script = "uid://dlgmjtlf10wog"

@@ -3,10 +3,7 @@ extends State
 @export var player : Entity
 
 func get_input_dir():
-	return Vector2(
-		Input.get_axis(player.moveset.left, player.moveset.right),
-		Input.get_axis(player.moveset.up, player.moveset.down)
-	).normalized()
+	return Input.get_vector(player.moveset.left, player.moveset.right, player.moveset.up, player.moveset.down)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func physics_update(delta):
