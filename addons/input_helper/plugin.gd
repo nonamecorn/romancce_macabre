@@ -5,7 +5,7 @@ extends EditorPlugin
 const REMOTE_RELEASES_URL = "https://api.github.com/repos/nathanhoad/godot_input_helper/releases"
 const LOCAL_CONFIG_PATH = "res://addons/input_helper/plugin.cfg"
 
-const DownloadDialogScene = preload("res://addons/input_helper/views/download_dialog.tscn")
+# const DownloadDialogScene = preload("res://addons/input_helper/views/download_dialog.tscn")
 
 
 var http_request: HTTPRequest = HTTPRequest.new()
@@ -65,48 +65,48 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	)
 	if versions.size() > 0:
 		next_version = versions[0].tag_name.substr(1)
-		add_tool_menu_item("Update Input Helper to v%s" % next_version, _update_input_helper)
+		# add_tool_menu_item("Update Input Helper to v%s" % next_version, _update_input_helper)
 
 
-func _update_input_helper() -> void:
-	var download_dialog := DownloadDialogScene.instantiate()
-	download_dialog.next_version = next_version
+# func _update_input_helper() -> void:
+# 	var download_dialog := DownloadDialogScene.instantiate()
+# 	download_dialog.next_version = next_version
 
-	var scale: float = get_editor_interface().get_editor_scale()
-	download_dialog.min_size = Vector2(300, 250) * scale
+# 	var scale: float = get_editor_interface().get_editor_scale()
+# 	download_dialog.min_size = Vector2(300, 250) * scale
 
-	download_dialog.update_finished.connect(_on_download_dialog_update_finished)
-	download_dialog.update_failed.connect(_on_download_dialog_update_failed)
+# 	download_dialog.update_finished.connect(_on_download_dialog_update_finished)
+# 	download_dialog.update_failed.connect(_on_download_dialog_update_failed)
 
-	get_editor_interface().get_base_control().add_child(download_dialog)
-	download_dialog.show()
-
-
-func _on_download_dialog_update_finished() -> void:
-	remove_tool_menu_item("Update Input Helper to v%s" % next_version)
-
-	get_editor_interface().get_resource_filesystem().scan()
-
-	print_rich("\n[b]Updated Input Helper to v%s[/b]\n" % next_version)
-
-	var finished_dialog: AcceptDialog = AcceptDialog.new()
-	finished_dialog.dialog_text = "Your Input Helper is now up to date."
-
-	var restart_addon = func():
-		finished_dialog.queue_free()
-		get_editor_interface().call_deferred("set_plugin_enabled", "input_helper", true)
-		get_editor_interface().set_plugin_enabled("input_helper", false)
-
-	finished_dialog.canceled.connect(restart_addon)
-	finished_dialog.confirmed.connect(restart_addon)
-	get_editor_interface().get_base_control().add_child(finished_dialog)
-	finished_dialog.popup_centered()
+# 	get_editor_interface().get_base_control().add_child(download_dialog)
+# 	download_dialog.show()
 
 
-func _on_download_dialog_update_failed() -> void:
-	var failed_dialog: AcceptDialog = AcceptDialog.new()
-	failed_dialog.dialog_text = "There was a problem downloading the update."
-	failed_dialog.canceled.connect(func(): failed_dialog.queue_free())
-	failed_dialog.confirmed.connect(func(): failed_dialog.queue_free())
-	get_editor_interface().get_base_control().add_child(failed_dialog)
-	failed_dialog.popup_centered()
+# func _on_download_dialog_update_finished() -> void:
+# 	remove_tool_menu_item("Update Input Helper to v%s" % next_version)
+
+# 	get_editor_interface().get_resource_filesystem().scan()
+
+# 	print_rich("\n[b]Updated Input Helper to v%s[/b]\n" % next_version)
+
+# 	var finished_dialog: AcceptDialog = AcceptDialog.new()
+# 	finished_dialog.dialog_text = "Your Input Helper is now up to date."
+
+# 	var restart_addon = func():
+# 		finished_dialog.queue_free()
+# 		get_editor_interface().call_deferred("set_plugin_enabled", "input_helper", true)
+# 		get_editor_interface().set_plugin_enabled("input_helper", false)
+
+# 	finished_dialog.canceled.connect(restart_addon)
+# 	finished_dialog.confirmed.connect(restart_addon)
+# 	get_editor_interface().get_base_control().add_child(finished_dialog)
+# 	finished_dialog.popup_centered()
+
+
+# func _on_download_dialog_update_failed() -> void:
+# 	var failed_dialog: AcceptDialog = AcceptDialog.new()
+# 	failed_dialog.dialog_text = "There was a problem downloading the update."
+# 	failed_dialog.canceled.connect(func(): failed_dialog.queue_free())
+# 	failed_dialog.confirmed.connect(func(): failed_dialog.queue_free())
+# 	get_editor_interface().get_base_control().add_child(failed_dialog)
+# 	failed_dialog.popup_centered()
