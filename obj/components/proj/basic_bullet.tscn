@@ -31,7 +31,7 @@ animations = [{
 
 [node name="BasicBullet" type="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 17
+collision_mask = 19
 script = ExtResource("1_ui87o")
 speed = 1700.0
 
