@@ -6,10 +6,14 @@
 script = ExtResource("1_8xo1b")
 player_index = 2
 keyboard = false
-left = "p2_left"
-right = "p2_right"
 up = "p2_up"
+left = "p2_left"
 down = "p2_down"
+right = "p2_right"
+look_up = "p2_look_up"
+look_left = "p2_look_left"
+look_down = "p2_look_down"
+look_right = "p2_look_right"
 pick = "p2_grab"
 use = "p2_use"
 metadata/_custom_type_script = "uid://dlgmjtlf10wog"

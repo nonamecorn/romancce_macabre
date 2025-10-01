@@ -3,21 +3,28 @@ extends EntityHand
 @export var player : CharacterBody2D
 
 @export var throw_force = 1000
+@export var look_input_deadzone: float = 0.6
 var item : RigidBody2D
 
 
 func _process(delta: float) -> void:
 	var pos : Vector2
-	if player.moveset.keyboard:
+	if player.moveset.keyboard: ## Keyboard/Mouse input handling
 		var cursor_pos = get_global_mouse_position()
 		pos = cursor_pos - global_position
-	else:
-		pos = Input.get_vector(player.moveset.left, player.moveset.right, player.moveset.up, player.moveset.down)
-	global_rotation = atan2(pos.y, pos.x)
-	if pos.x < 0 and !flipped:
-		flip()
-	if pos.x >= 0 and flipped:
-		flip()
+		global_rotation = atan2(pos.y, pos.x)
+		if pos.x < 0 and !flipped:
+			flip()
+		if pos.x >= 0 and flipped:
+			flip()
+	else: ## Joystick input handling
+		pos = Input.get_vector(player.moveset.look_left, player.moveset.look_right, player.moveset.look_up, player.moveset.look_down)
+		if pos.length() >= look_input_deadzone:
+			global_rotation = atan2(pos.y, pos.x)
+			if pos.x < 0 and !flipped:
+				flip()
+			if pos.x >= 0 and flipped:
+				flip()
 	if Input.is_action_just_pressed(player.moveset.pick):
 		#print("dsgsf")
 		if !has_item():
