@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://wnr0gsewioug"]
+[gd_scene load_steps=25 format=3 uid="uid://wnr0gsewioug"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_pneqy"]
 [ext_resource type="Script" uid="uid://kmjfkbt1bg77" path="res://obj/entity/enemies/basic_enemy.gd" id="2_lsro6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqx4dqfkipnix" path="res://img/bodies/enemies/4snok_2walk.png" id="4_ylrwe"]
 [ext_resource type="Script" uid="uid://dbteipskyllwk" path="res://obj/entity/enemies/patrol_state.gd" id="5_lf5h5"]
 [ext_resource type="Script" uid="uid://bpj2cni183yq0" path="res://obj/entity/enemies/turret_state.gd" id="6_1oeey"]
+[ext_resource type="Resource" uid="uid://bxtfivy8h632" path="res://res/ingredients/gralic.tres" id="7_ba4ll"]
 [ext_resource type="Script" uid="uid://xmyx6gj5p53v" path="res://obj/entity/enemies/investigate.gd" id="7_r3slm"]
 [ext_resource type="Script" uid="uid://bsxhiboftuo1f" path="res://obj/entity/enemies/panic_state.gd" id="8_ahi63"]
 [ext_resource type="Script" uid="uid://xxrswto60gno" path="res://obj/entity/enemies/retreat_state.gd" id="10_vnpck"]
@@ -89,7 +90,7 @@ initial_state = NodePath("Turret")
 script = ExtResource("4_3webs")
 perceptor = NodePath("../../Perceptor")
 ray = NodePath("../../LOS_ray")
-death_ingr = null
+death_ingr = ExtResource("7_ba4ll")
 
 [node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
 script = ExtResource("5_lf5h5")
@@ -180,6 +181,7 @@ debug_color = Color(0.543392, 0.427697, 9.62615e-08, 0.282353)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
 
 [node name="Label" type="Label" parent="." index="8"]
+visible = false
 offset_left = -19.0
 offset_top = -56.0
 offset_right = 21.0

@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbg2n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_68gjs"]
-radius = 26.076809
+radius = 13.038404
 
 [node name="drop_pod" type="StaticBody2D"]
 script = ExtResource("1_hw418")
