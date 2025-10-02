@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cimt3e7arnv74"]
+[gd_scene load_steps=7 format=3 uid="uid://cimt3e7arnv74"]
 
 [ext_resource type="PackedScene" uid="uid://bmnwh28jj06kj" path="res://lvls/map.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cau8dpxk32d81" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="AudioStream" uid="uid://c1mamtf3m3pu7" path="res://snd/Songs/bossa onion.ogg" id="2_fc0e3"]
 [ext_resource type="AudioStream" uid="uid://dbfaieb72hbfu" path="res://snd/Songs/Vegebattle.ogg" id="3_7jktm"]
+[ext_resource type="FontFile" uid="uid://cj6t6awu63v4k" path="res://other/Tiny5-Regular.ttf" id="5_7jktm"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ryrav"]
 shuffle = true
@@ -91,5 +92,21 @@ render_target_update_mode = 4
 
 [node name="Camera2D2" type="Camera2D" parent="GridContainer/SubViewportContainer4/SubViewport"]
 zoom = Vector2(2, 2)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("5_7jktm")
+theme_override_font_sizes/font_size = 72
+text = "1234567890"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="GridContainer/SubViewportContainer2/SubViewport/map"]
