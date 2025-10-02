@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqx4dqfkipnix" path="res://img/bodies/enemies/4snok_2walk.png" id="4_ylrwe"]
 [ext_resource type="Script" uid="uid://dbteipskyllwk" path="res://obj/entity/enemies/patrol_state.gd" id="5_lf5h5"]
 [ext_resource type="Script" uid="uid://bpj2cni183yq0" path="res://obj/entity/enemies/turret_state.gd" id="6_1oeey"]
-[ext_resource type="Resource" uid="uid://bxtfivy8h632" path="res://res/ingredients/gralic.tres" id="7_ba4ll"]
+[ext_resource type="PackedScene" uid="uid://c1nm243uchc6w" path="res://obj/entity/grloc.tscn" id="7_ba4ll"]
 [ext_resource type="Script" uid="uid://xmyx6gj5p53v" path="res://obj/entity/enemies/investigate.gd" id="7_r3slm"]
 [ext_resource type="Script" uid="uid://bsxhiboftuo1f" path="res://obj/entity/enemies/panic_state.gd" id="8_ahi63"]
 [ext_resource type="Script" uid="uid://xxrswto60gno" path="res://obj/entity/enemies/retreat_state.gd" id="10_vnpck"]
@@ -87,11 +87,12 @@ script = ExtResource("3_30r1e")
 label = NodePath("../Label")
 initial_state = NodePath("Turret")
 
-[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("perceptor", "ray")]
+[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("perceptor", "ray", "hm")]
 script = ExtResource("4_3webs")
 perceptor = NodePath("../../Perceptor")
 ray = NodePath("../../LOS_ray")
 death_ingr = ExtResource("7_ba4ll")
+hm = NodePath("../../Hand/Handmarker")
 
 [node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
 script = ExtResource("5_lf5h5")

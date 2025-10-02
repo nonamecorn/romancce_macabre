@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://6dum362dqp5s"]
+
+[ext_resource type="PackedScene" uid="uid://d4fp7qb4kb8ll" path="res://obj/components/bodies/mother_item.tscn" id="1_j6w2g"]
+[ext_resource type="Script" uid="uid://v5uk8rgqjtxq" path="res://obj/entity/ingredient.gd" id="2_d6txf"]
+[ext_resource type="Resource" uid="uid://mbiqe63jkyxo" path="res://res/ingredients/pomidor.tres" id="3_d6txf"]
+[ext_resource type="Texture2D" uid="uid://crtb8ahmqvpjq" path="res://img/items/4sno4ok.png" id="3_ya86g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efotu"]
+radius = 13.038404
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcpbm"]
+radius = 14.142136
+
+[node name="ingredient_base" instance=ExtResource("1_j6w2g")]
+script = ExtResource("2_d6txf")
+res = ExtResource("3_d6txf")
+health = 100
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_efotu")
+
+[node name="Sprite2D" parent="." index="1"]
+z_index = 3
+texture = ExtResource("3_ya86g")
+
+[node name="CollisionShape2D" parent="Pickable_Area" index="0"]
+shape = SubResource("CircleShape2D_rcpbm")
+debug_color = Color(0.36771843, 0.597749, 0.43100452, 0.41960785)

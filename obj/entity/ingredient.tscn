@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c737yq40enb7n"]
+[gd_scene load_steps=6 format=3 uid="uid://c737yq40enb7n"]
 
 [ext_resource type="PackedScene" uid="uid://d4fp7qb4kb8ll" path="res://obj/components/bodies/mother_item.tscn" id="1_ajgg6"]
 [ext_resource type="Script" uid="uid://v5uk8rgqjtxq" path="res://obj/entity/ingredient.gd" id="2_efotu"]
+[ext_resource type="Texture2D" uid="uid://crtb8ahmqvpjq" path="res://img/items/4sno4ok.png" id="3_rcpbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efotu"]
 radius = 13.038404
@@ -19,6 +20,7 @@ shape = SubResource("CircleShape2D_efotu")
 
 [node name="Sprite2D" parent="." index="1"]
 z_index = 3
+texture = ExtResource("3_rcpbm")
 
 [node name="CollisionShape2D" parent="Pickable_Area" index="0"]
 shape = SubResource("CircleShape2D_rcpbm")

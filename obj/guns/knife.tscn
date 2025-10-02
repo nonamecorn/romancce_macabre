@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bepyyymx85y0q"]
+[gd_scene load_steps=10 format=3 uid="uid://bepyyymx85y0q"]
 
 [ext_resource type="PackedScene" uid="uid://d4fp7qb4kb8ll" path="res://obj/components/bodies/mother_item.tscn" id="1_dh4g5"]
 [ext_resource type="Texture2D" uid="uid://cfjyf2kpgflim" path="res://img/weapons/knife.png" id="2_1mcsd"]
+[ext_resource type="Script" uid="uid://bqwc2y2e0hyr4" path="res://obj/guns/knife.gd" id="2_3ynqc"]
 [ext_resource type="PackedScene" uid="uid://4yaklnxupf0h" path="res://obj/components/hurtbox.tscn" id="3_m1tmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1tmt"]
@@ -87,6 +88,7 @@ _data = {
 }
 
 [node name="knife" instance=ExtResource("1_dh4g5")]
+script = ExtResource("2_3ynqc")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, -0.5)

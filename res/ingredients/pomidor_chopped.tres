@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=4 format=3 uid="uid://c3haxesc3j5iv"]
+
+[ext_resource type="Texture2D" uid="uid://b824e53bd8mq5" path="res://img/items/Pomidor4ik_cut.png" id="1_ielgs"]
+[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="2_gjtab"]
+[ext_resource type="Texture2D" uid="uid://c2gp5w63elyth" path="res://img/items/Pomidor4ik.png" id="3_k18vr"]
+
+[resource]
+script = ExtResource("2_gjtab")
+name = "Tomato"
+texture = ExtResource("3_k18vr")
+chopped_tex = ExtResource("1_ielgs")
+chopped = true
+metadata/_custom_type_script = "uid://bsjox2yixf52y"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=4 format=3 uid="uid://dg5uwxq5glqrm"]
+
+[ext_resource type="Texture2D" uid="uid://bc54gwqeddn0x" path="res://img/items/4sno4ok_cut.png" id="1_3di6q"]
+[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="2_lspvl"]
+[ext_resource type="Texture2D" uid="uid://crtb8ahmqvpjq" path="res://img/items/4sno4ok.png" id="3_txsp1"]
+
+[resource]
+script = ExtResource("2_lspvl")
+name = "Garlic"
+texture = ExtResource("3_txsp1")
+chopped_tex = ExtResource("1_3di6q")
+chopped = true
+metadata/_custom_type_script = "uid://bsjox2yixf52y"

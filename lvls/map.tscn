@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dehjv4ikg52cs" path="res://obj/furniture/stove.tscn" id="10_plxmq"]
 [ext_resource type="PackedScene" uid="uid://bkrh617ywrwoe" path="res://obj/containers/pot.tscn" id="10_x02vt"]
 [ext_resource type="PackedScene" uid="uid://ctaryefmvilqh" path="res://obj/entity/shef.tscn" id="11_tyjp7"]
-[ext_resource type="PackedScene" uid="uid://yi3c4x1pfkxi" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
+[ext_resource type="PackedScene" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
 [ext_resource type="PackedScene" uid="uid://bepyyymx85y0q" path="res://obj/guns/knife.tscn" id="12_tyjp7"]
 [ext_resource type="PackedScene" uid="uid://8kqqbepvyiji" path="res://obj/drop_pod.tscn" id="13_tyjp7"]
 [ext_resource type="PackedScene" uid="uid://ck5scllmkbo50" path="res://obj/furniture/output.tscn" id="14_1xery"]
@@ -118,6 +118,10 @@ sources/1 = SubResource("TileSetAtlasSource_t03gw")
 [node name="Kitchen" type="Node2D"]
 y_sort_enabled = true
 
+[node name="cave" parent="." node_paths=PackedStringArray("kitchen_pod") instance=ExtResource("16_ie3xl")]
+y_sort_enabled = false
+kitchen_pod = NodePath("../drop_pod")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1472.0
 offset_top = -608.0
@@ -201,11 +205,6 @@ position = Vector2(80, 192)
 
 [node name="plate3" parent="." instance=ExtResource("15_q58cs")]
 position = Vector2(32, 176)
-
-[node name="cave" parent="." node_paths=PackedStringArray("kitchen_pod") instance=ExtResource("16_ie3xl")]
-y_sort_enabled = false
-position = Vector2(1312, 4240)
-kitchen_pod = NodePath("../drop_pod")
 
 [node name="howtospaghetti" type="Sprite2D" parent="."]
 position = Vector2(264, 52)

@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://bq4hy0olvnyok"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://bq4hy0olvnyok"]
 
 [ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="1_qv0ch"]
+[ext_resource type="Resource" uid="uid://dg5uwxq5glqrm" path="res://res/ingredients/gralic_chopped.tres" id="2_apifj"]
 [ext_resource type="Script" uid="uid://bviytqsusqyl3" path="res://res_scripts/Recipe.gd" id="2_wr5pr"]
+[ext_resource type="Resource" uid="uid://c3haxesc3j5iv" path="res://res/ingredients/pomidor_chopped.tres" id="3_k432k"]
+[ext_resource type="Resource" uid="uid://dqux72delnd6h" path="res://res/ingredients/popcorn_chopped.tres" id="4_ogthm"]
+[ext_resource type="Resource" uid="uid://0usny04csqfk" path="res://res/ingredients/spaghetti.tres" id="5_k4k4l"]
 
 [resource]
 script = ExtResource("2_wr5pr")
+inputs = Array[ExtResource("1_qv0ch")]([ExtResource("2_apifj"), ExtResource("3_k432k"), ExtResource("4_ogthm")])
+outputs = Array[ExtResource("1_qv0ch")]([ExtResource("5_k4k4l")])
 metadata/_custom_type_script = "uid://bviytqsusqyl3"

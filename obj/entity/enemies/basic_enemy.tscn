@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cy7uuvev4cuda" path="res://obj/entity/enemies/perceptor.gd" id="5_cgfm0"]
 [ext_resource type="Script" uid="uid://xmyx6gj5p53v" path="res://obj/entity/enemies/investigate.gd" id="5_ix6af"]
 [ext_resource type="Script" uid="uid://bsxhiboftuo1f" path="res://obj/entity/enemies/panic_state.gd" id="6_pwmcd"]
-[ext_resource type="Resource" uid="uid://xo8vrqsfle77" path="res://res/ingredients/popcorn.tres" id="7_3tdu7"]
+[ext_resource type="PackedScene" uid="uid://wr3x0n1wfx4f" path="res://obj/entity/cornelius.tscn" id="7_3tdu7"]
 [ext_resource type="Script" uid="uid://d2eil3heten32" path="res://obj/entity/enemies/surround_state.gd" id="7_u1xw8"]
 [ext_resource type="Script" uid="uid://xxrswto60gno" path="res://obj/entity/enemies/retreat_state.gd" id="8_04aog"]
 [ext_resource type="PackedScene" uid="uid://sawmnypnombt" path="res://obj/guns/corn_blaster.tscn" id="13_jpft1"]
@@ -85,11 +85,12 @@ script = ExtResource("3_javgc")
 label = NodePath("../Label")
 initial_state = NodePath("Turret")
 
-[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("perceptor", "ray")]
+[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("perceptor", "ray", "hm")]
 script = ExtResource("4_uwxms")
 perceptor = NodePath("../../Perceptor")
 ray = NodePath("../../LOS_ray")
 death_ingr = ExtResource("7_3tdu7")
+hm = NodePath("../../Hand/Handmarker")
 
 [node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
 script = ExtResource("2_ppyn0")

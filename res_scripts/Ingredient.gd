@@ -5,13 +5,13 @@ extends Resource
 @export var name: String
 @export var texture: Texture
 @export var chopped_tex: Texture
-var chopped : bool = false
+@export var chopped : bool = false
 
 static func compare(a, b) -> bool:
 	return a.id < b.id
 
 static func equals(a, b) -> bool:
-	return a.id == b.id
+	return a.id == b.id and a.chopped == b.chopped
 
 static func equals_array(a: Array[IngredientRes], b: Array[IngredientRes]) -> bool:
 	if a.size() != b.size():
