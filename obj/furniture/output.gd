@@ -12,5 +12,6 @@ func attach(body : Item):
 		check_orders(body.extract())
 	#await  get_tree().physics_frame
 
-func check_orders(ingr_res):
-	pass
+func check_orders(ingr_res : IngredientRes):
+	if ingr_res.id == "4":
+		Score.score += 100

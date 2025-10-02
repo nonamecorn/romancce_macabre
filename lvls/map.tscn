@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=34 format=4 uid="uid://bmnwh28jj06kj"]
 
+[ext_resource type="Script" uid="uid://u738elya2vpj" path="res://lvls/map.gd" id="1_h8448"]
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
 [ext_resource type="Texture2D" uid="uid://db6ua4a5ndb2t" path="res://img/levels/WallTileSet.png" id="5_04hbb"]
@@ -21,6 +22,14 @@
 [ext_resource type="PackedScene" uid="uid://c1nm243uchc6w" path="res://obj/entity/grloc.tscn" id="19_rmre4"]
 [ext_resource type="PackedScene" uid="uid://6dum362dqp5s" path="res://obj/entity/pomidor.tscn" id="20_2mgel"]
 [ext_resource type="PackedScene" uid="uid://twexuei0iw5w" path="res://obj/cargo_box.tscn" id="21_rmre4"]
+[ext_resource type="Script" uid="uid://msye2xfhroqu" path="res://lvls/timer.gd" id="23_7jcl3"]
+[ext_resource type="AudioStream" uid="uid://637jl1xq7dxp" path="res://snd/Jingles/win.ogg" id="23_t6f8w"]
+[ext_resource type="AudioStream" uid="uid://brdqe1y14ipxk" path="res://snd/Jingles/lose.ogg" id="24_kl8ba"]
+[ext_resource type="Texture2D" uid="uid://dlxiuwc2mns4b" path="res://img/UI/time3.png" id="25_se0ge"]
+[ext_resource type="Texture2D" uid="uid://dwagvk4336ggt" path="res://img/UI/time.png" id="26_7jcl3"]
+[ext_resource type="Texture2D" uid="uid://dfrqhwow4e8v" path="res://img/UI/time2.png" id="27_uqpkd"]
+[ext_resource type="Texture2D" uid="uid://dol8mmu1f36j3" path="res://img/UI/image2.png" id="29_opa6e"]
+[ext_resource type="Texture2D" uid="uid://bphp7rmdy4a5g" path="res://img/UI/image.png" id="30_fuswm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -121,6 +130,7 @@ sources/1 = SubResource("TileSetAtlasSource_t03gw")
 
 [node name="Kitchen" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_h8448")
 
 [node name="cave" parent="." node_paths=PackedStringArray("kitchen_pod") instance=ExtResource("16_ie3xl")]
 y_sort_enabled = false
@@ -228,3 +238,55 @@ position = Vector2(464, 256)
 
 [node name="cargo_box" parent="." instance=ExtResource("21_rmre4")]
 position = Vector2(368, 208)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("23_7jcl3")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Timer"]
+offset_left = 544.0
+offset_top = 32.0
+offset_right = 608.0
+offset_bottom = 72.0
+value = 100.0
+texture_under = ExtResource("25_se0ge")
+texture_over = ExtResource("26_7jcl3")
+texture_progress = ExtResource("27_uqpkd")
+
+[node name="Label" type="Label" parent="Timer/TextureProgressBar"]
+layout_mode = 0
+offset_left = 15.999998
+offset_right = 80.0
+offset_bottom = 23.0
+scale = Vector2(0.68, 0.68)
+text = "0:0"
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("23_t6f8w")
+
+[node name="loss" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("24_kl8ba")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="won" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 816.0
+offset_top = 176.0
+offset_right = 1136.0
+offset_bottom = 304.0
+texture = ExtResource("29_opa6e")
+
+[node name="lost" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 816.0
+offset_top = 720.0
+offset_right = 1136.0
+offset_bottom = 848.0
+texture = ExtResource("30_fuswm")
+
+[connection signal="timeout" from="Timer" to="." method="finish"]

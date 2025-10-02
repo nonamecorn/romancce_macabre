@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://c2sxcptsaf6uq"
-path="res://.godot/imported/tomato_hurt1.ogg-d542e02cc06c0c71a9baa48019a0ddde.oggvorbisstr"
+path="res://.godot/imported/tomato_hurt1.ogg-f9d207587966492bb77786881661e5c9.oggvorbisstr"
 
 [deps]
 
-source_file="res://snd/sfx/tomato_hurt1.ogg"
-dest_files=["res://.godot/imported/tomato_hurt1.ogg-d542e02cc06c0c71a9baa48019a0ddde.oggvorbisstr"]
+source_file="res://snd/SFX/tomato_hurt1.ogg"
+dest_files=["res://.godot/imported/tomato_hurt1.ogg-f9d207587966492bb77786881661e5c9.oggvorbisstr"]
 
 [params]
 

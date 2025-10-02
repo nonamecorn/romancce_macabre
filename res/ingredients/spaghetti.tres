@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_8j036")
+id = &"4"
 name = "Spaghetti Ready "
 texture = ExtResource("1_wovme")
 chopped_tex = ExtResource("1_wovme")

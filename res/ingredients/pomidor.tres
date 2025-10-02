@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_sm03m")
+id = &"2"
 name = "Tomato"
 texture = ExtResource("3_lx418")
 chopped_tex = ExtResource("1_08imd")

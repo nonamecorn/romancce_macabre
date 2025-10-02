@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bmnwh28jj06kj" path="res://lvls/map.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cau8dpxk32d81" path="res://game.gd" id="1_e2o6t"]
-[ext_resource type="AudioStream" uid="uid://c1mamtf3m3pu7" path="res://snd/Songs/bossa onion.ogg" id="2_fc0e3"]
-[ext_resource type="AudioStream" uid="uid://dbfaieb72hbfu" path="res://snd/Songs/Vegebattle.ogg" id="3_7jktm"]
+[ext_resource type="AudioStream" uid="uid://br4lsrqdekqye" path="res://snd/Songs/bossa onion.ogg" id="2_fc0e3"]
+[ext_resource type="AudioStream" uid="uid://cirpybytwe6of" path="res://snd/Songs/Vegebattle.ogg" id="3_7jktm"]
 [ext_resource type="FontFile" uid="uid://cj6t6awu63v4k" path="res://other/Tiny5-Regular.ttf" id="5_7jktm"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ryrav"]

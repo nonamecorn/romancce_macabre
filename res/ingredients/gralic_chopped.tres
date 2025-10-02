@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_lspvl")
+id = &"1"
 name = "Garlic"
 texture = ExtResource("3_txsp1")
 chopped_tex = ExtResource("1_3di6q")
