@@ -7,6 +7,7 @@ extends DeathState
 
 func enter():
 	super.enter()
+	Score.score += 10
 	perceptor.queue_free()
 	ray.queue_free()
 	var ingr = death_ingr.instantiate()
