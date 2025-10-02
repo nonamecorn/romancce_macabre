@@ -79,7 +79,7 @@ libraries = {
 }
 
 [node name="POF" parent="." index="7"]
-position = Vector2(8, -1)
+position = Vector2(16, -2)
 
 [node name="ejector" parent="." index="8"]
 position = Vector2(-8, -4)
