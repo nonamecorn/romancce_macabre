@@ -21,6 +21,7 @@ var heated : bool = false:
 			pause_cooking()
 
 func match_recipe():
+	print("aus")
 	pause_cooking()
 	$TextureProgressBar.value = 0.0
 	var recipe_ind = recipes.find_custom(matches)

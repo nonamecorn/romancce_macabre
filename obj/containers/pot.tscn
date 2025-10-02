@@ -1,23 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkrh617ywrwoe"]
+[gd_scene load_steps=8 format=3 uid="uid://bkrh617ywrwoe"]
 
 [ext_resource type="PackedScene" uid="uid://cro5ey07r4fn1" path="res://obj/components/bodies/mother_container.tscn" id="1_k3oes"]
 [ext_resource type="Script" uid="uid://be2lrghh8p3hv" path="res://obj/containers/pot.gd" id="2_4q4od"]
 [ext_resource type="Script" uid="uid://bviytqsusqyl3" path="res://res_scripts/Recipe.gd" id="3_ccxjv"]
-[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="4_4bk5y"]
+[ext_resource type="Resource" uid="uid://bq4hy0olvnyok" path="res://res/recipes/lasagna.tres" id="4_7uoa2"]
 [ext_resource type="Texture2D" uid="uid://dy8vts5ynt7ks" path="res://img/misc/O_back.png" id="5_7uoa2"]
-[ext_resource type="Resource" uid="uid://xo8vrqsfle77" path="res://res/ingredients/popcorn.tres" id="5_ucbyp"]
 [ext_resource type="Texture2D" uid="uid://bdy3un2jj7tlo" path="res://img/misc/O.png" id="6_4bk5y"]
 [ext_resource type="Texture2D" uid="uid://cfrugsde1uwqf" path="res://img/misc/O_full.png" id="7_ucbyp"]
 
-[sub_resource type="Resource" id="Resource_eorkg"]
-script = ExtResource("3_ccxjv")
-inputs = Array[ExtResource("4_4bk5y")]([ExtResource("5_ucbyp"), ExtResource("5_ucbyp"), ExtResource("5_ucbyp")])
-duration = 3.0
-metadata/_custom_type_script = "uid://bviytqsusqyl3"
-
 [node name="pot" instance=ExtResource("1_k3oes")]
 script = ExtResource("2_4q4od")
-recipes = Array[ExtResource("3_ccxjv")]([SubResource("Resource_eorkg")])
+recipes = Array[ExtResource("3_ccxjv")]([ExtResource("4_7uoa2")])
 limit = 3
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." index="3"]

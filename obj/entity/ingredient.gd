@@ -7,7 +7,10 @@ class_name Ingredient
 
 func _ready() -> void:
 	print(global_position, "sag")
-	$Sprite2D.texture = res.texture
+	if res.chopped:
+		$Sprite2D.texture = res.chopped_tex
+	else:
+		$Sprite2D.texture = res.texture
 
 func use():
 	#regen_health
