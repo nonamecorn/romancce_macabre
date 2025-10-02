@@ -17,6 +17,8 @@ var _is_remapping: bool = false
 var _action_to_remap: StringName
 var _remapping_button: BaseButton
 
+@onready var main_menu = "res://menu/menu.tscn"
+
 func _ready() -> void:
 	_bind_buttons_pressed_to_idx(player_list, _on_player_select)
 	_bind_buttons_pressed_to_idx(device_list, _on_device_select)
@@ -68,13 +70,19 @@ func _exit_remapping() -> void:
 	_remapping_button.get_node(^"MarginContainer/HBoxContainer/LabelInput").text = _get_input_label(_action_to_remap, selected_player)
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		if !_is_remapping:
+			accept_event()
+			get_tree().change_scene_to_file(main_menu)
+		else:
+			_exit_remapping()
+			accept_event()
+		return
 	if !_is_remapping:
 		return
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		_exit_remapping()
-		accept_event()
-		return
-	if ((GameSettings.player_to_device_id[selected_player] == (InputHelper.get_device_index_from_event(event) + 1)) and not ((event is InputEventJoypadMotion) and (abs(event.axis_value) < InputHelper.deadzone))):
+	if (not (event is InputEventMouseMotion) and
+	(GameSettings.player_to_device_id[selected_player] == (InputHelper.get_device_index_from_event(event) + 1)) and
+	not ((event is InputEventJoypadMotion) and (abs(event.axis_value) < InputHelper.deadzone))):
 		InputMap.action_erase_events(_action_to_remap)
 		InputMap.action_add_event(_action_to_remap, event)
 		_exit_remapping()

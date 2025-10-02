@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bucfhrlwtyysj"]
+[gd_scene load_steps=4 format=3 uid="uid://bucfhrlwtyysj"]
 
 [ext_resource type="PackedScene" uid="uid://bdrt5htmp78fb" path="res://settings/input_settings.tscn" id="1_1np8e"]
 [ext_resource type="Theme" uid="uid://dwi5q30vl6eoe" path="res://settings/settings_menu.tres" id="1_gjdk6"]
+[ext_resource type="Script" uid="uid://bik71ogojhn8d" path="res://settings/settings_menu.gd" id="2_olm1t"]
 
 [node name="SettingsMenu" type="Control"]
 layout_direction = 2
@@ -14,6 +15,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_gjdk6")
+script = ExtResource("2_olm1t")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -34,8 +36,3 @@ current_tab = 0
 
 [node name="Input" parent="MarginContainer/TabContainer" instance=ExtResource("1_1np8e")]
 layout_mode = 2
-
-[node name="Audio" type="PanelContainer" parent="MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
