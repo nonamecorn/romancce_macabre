@@ -1,5 +1,7 @@
 extends IngredientContainer
 
+class_name Plate
+
 func attach(body : Ingredient):
 	if body.get_parent().name == "Item": return
 	ingredients.append(body.res)

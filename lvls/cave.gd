@@ -6,6 +6,8 @@ var floors : Array[Vector2i]
 @export var pool : Array[PackedScene]
 @export var pod : PackedScene
 
+@export var kitchen_pod : StaticBody2D
+
 func _ready() -> void:
 	wall_up()
 	spawn_ememies()
@@ -14,7 +16,7 @@ func _ready() -> void:
 func spawn_pod():
 	floors.shuffle()
 	var pod_inst = pod.instantiate()
-	pod_inst.global_position = (floors[0] * 32)
+	pod_inst.position = (floors[0] * 32)
 	add_child(pod_inst)
  
 
@@ -26,6 +28,7 @@ func wall_up():
 		 atlas == Vector2i(5,2) or
 		atlas == Vector2i(6,2)
 		):
+			floors.erase(tile_coords)
 			$walls.set_cell(tile_coords,1,Vector2i(0,0))
 
 func spawn_ememies():
