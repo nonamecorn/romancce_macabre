@@ -34,9 +34,6 @@ current_tab = 0
 
 [node name="Input" parent="MarginContainer/TabContainer" instance=ExtResource("1_1np8e")]
 layout_mode = 2
-selected_player = null
-line_color = null
-line_selected_color = null
 
 [node name="Audio" type="PanelContainer" parent="MarginContainer/TabContainer"]
 visible = false

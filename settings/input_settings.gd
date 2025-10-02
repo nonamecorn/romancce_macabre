@@ -74,10 +74,12 @@ func _input(event: InputEvent) -> void:
 		_exit_remapping()
 		accept_event()
 		return
-	if (GameSettings.player_to_device_id[selected_device] == InputHelper.get_device_index_from_event(event) + 1
-	and	not (event is InputEventJoypadMotion and abs(event.axis_value) < InputHelper.deadzone)):
-		InputHelper.set_keyboard_or_joypad_input_for_action(_action_to_remap, event)
+	if ((GameSettings.player_to_device_id[selected_player] == (InputHelper.get_device_index_from_event(event) + 1)) and not ((event is InputEventJoypadMotion) and (abs(event.axis_value) < InputHelper.deadzone))):
+		InputMap.action_erase_events(_action_to_remap)
+		InputMap.action_add_event(_action_to_remap, event)
 		_exit_remapping()
+		GameSettings.serialize_player_input_dict(selected_player)
+		GameSettings.dump_input_cfg()
 		accept_event()
 
 ## Player button handler with 0-indexed [param player_id]
@@ -112,15 +114,19 @@ func _on_device_select(device_id: GameSettings.DeviceID) -> void:
 	
 	selected_device = device_id
 	_player_set_device_id(selected_player, device_id)
+	GameSettings.dump_input_cfg()
 	_load_action_list(selected_player)
-	print(InputMap.action_get_events("p1_left"))
 
 func _player_set_device_id(player_id: int, device_id: int) -> void:
 	var actions = GameSettings.get_actions_by_player(player_id)
-	for a in actions:
-		var events = InputMap.action_get_events(a)
-		for e in events:
-			if e is InputEventJoypadButton or e is InputEventJoypadMotion or e is InputEventKey or e is InputEventMouse:
-				InputMap.action_erase_event(a, e)
-				e.device = device_id - 1 if not (e is InputEventKey or e is InputEventMouse) else device_id
-				InputHelper.set_keyboard_or_joypad_input_for_action(a, e, false)
+	GameSettings.player_to_device_id[player_id] = device_id
+	GameSettings.apply_input_dict_for_player(player_id)
+	for act in actions:
+		var events = InputMap.action_get_events(act)
+		for ev in events:
+			if ev is InputEventJoypadButton or ev is InputEventJoypadMotion or ev is InputEventKey or ev is InputEventMouse:
+				var new_ev := ev.duplicate()
+				InputMap.action_erase_events(act)
+				new_ev.device = device_id - 1 if not (new_ev is InputEventKey or new_ev is InputEventMouse) else -1
+				InputMap.action_add_event(act, new_ev)
+	GameSettings.serialize_player_input_dict(player_id)

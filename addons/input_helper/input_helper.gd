@@ -294,9 +294,15 @@ func serialize_inputs_for_action(action: StringName) -> String:
 		elif input is InputEventMouseButton:
 			action_inputs.append("mouse:%d" % input.button_index)
 		elif input is InputEventJoypadButton:
-			action_inputs.append("joypad:%d" % input.button_index)
+			if get_device_index_from_event(input) != -1:
+				action_inputs.append("joypad%d:%d" % [get_device_index_from_event(input), input.button_index])
+			else:
+				action_inputs.append("joypad:%d" % input.button_index)
 		elif input is InputEventJoypadMotion:
-			action_inputs.append("joypad:%d|%f" % [input.axis, input.axis_value])
+			if get_device_index_from_event(input) != -1:
+				action_inputs.append("joypad%d:%d|%f" % [get_device_index_from_event(input), input.axis, input.axis_value])
+			else:
+				action_inputs.append("joypad:%d|%f" % [input.axis, input.axis_value])
 
 	return ";".join(action_inputs)
 
@@ -356,17 +362,23 @@ func deserialize_inputs_for_action(action: String, string: String) -> void:
 				InputMap.action_add_event(action, mouse_input)
 				keyboard_input_changed.emit(action, mouse_input)
 
-			"joypad":
+			_:
+				if not input_type.match("joypad*"):
+					break
+				var suf = input_type.trim_prefix("joypad")
+				var device_id: int = suf.to_int() if suf.length() > 0 else -1
 				if "|" in str(input_details):
 					var joypad_motion_input = InputEventJoypadMotion.new()
 					var joypad_bits = input_details.split("|")
 					joypad_motion_input.axis = int(joypad_bits[0])
 					joypad_motion_input.axis_value = float(joypad_bits[1])
+					joypad_motion_input.device = device_id
 					InputMap.action_add_event(action, joypad_motion_input)
 					joypad_input_changed.emit(action, joypad_motion_input)
 				else:
 					var joypad_input = InputEventJoypadButton.new()
 					joypad_input.button_index = int(input_details)
+					joypad_input.device = device_id
 					InputMap.action_add_event(action, joypad_input)
 					joypad_input_changed.emit(action, joypad_input)
 
