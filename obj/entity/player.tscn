@@ -44,9 +44,10 @@ player = NodePath("../..")
 script = ExtResource("6_yeeoh")
 player = NodePath("..")
 throw_force = 500
+look_input_deadzone = 0.6
 
 [node name="Handmarker" parent="Hand" index="0"]
-position = Vector2(25, 0)
+position = Vector2(28, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Handmarker" index="0"]
 texture = ExtResource("6_ddxsi")
