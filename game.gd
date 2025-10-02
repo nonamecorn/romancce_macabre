@@ -34,4 +34,4 @@ func _ready() -> void:
 		node.player.add_child(remote_trans)
 
 func _process(_delta: float) -> void:
-	$"CenterContainer/Label".text = Score.score
+	$"CenterContainer/Label".text = str(Score.score)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Root n' Shoot Diners"
-run/main_scene="uid://cimt3e7arnv74"
+run/main_scene="uid://dhoterx8666un"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
