@@ -132,6 +132,7 @@ initial_state = NodePath("Turret")
 script = ExtResource("6_pktbn")
 perceptor = NodePath("../../Perceptor")
 ray = NodePath("../../LOS_ray")
+death_ingr = null
 
 [node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
 script = ExtResource("7_dptw3")

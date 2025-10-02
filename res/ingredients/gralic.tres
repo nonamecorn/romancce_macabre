@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=3 format=3 uid="uid://bxtfivy8h632"]
+
+[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="1_huel7"]
+[ext_resource type="Texture2D" uid="uid://d1f5gn7ekgta4" path="res://img/weapons/Popcorn.png" id="2_lj8q4"]
+
+[resource]
+script = ExtResource("1_huel7")
+name = "Popcorn"
+texture = ExtResource("2_lj8q4")
+metadata/_custom_type_script = "uid://bsjox2yixf52y"

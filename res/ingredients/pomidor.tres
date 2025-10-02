@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=2 format=3 uid="uid://mbiqe63jkyxo"]
+
+[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="1_sm03m"]
+
+[resource]
+script = ExtResource("1_sm03m")
+metadata/_custom_type_script = "uid://bsjox2yixf52y"
