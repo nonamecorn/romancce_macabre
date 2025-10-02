@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c50uut326x23d"]
+[gd_scene load_steps=22 format=3 uid="uid://c50uut326x23d"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_h7hxr"]
 [ext_resource type="Script" uid="uid://dbkti2uu350y8" path="res://obj/entity/player.gd" id="2_3nmum"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://v4itg2kkt5ne" path="res://img/bodies/player/Seny.png" id="4_h7hxr"]
 [ext_resource type="Texture2D" uid="uid://musmhqawos26" path="res://img/bodies/player/Seny_anim.png" id="5_3nmum"]
 [ext_resource type="Script" uid="uid://b6xe7045h0k1s" path="res://obj/entity/walk_state.gd" id="6_cn68h"]
+[ext_resource type="Script" uid="uid://btoxcy23ydmkg" path="res://obj/entity/dead.gd" id="6_i3nav"]
 [ext_resource type="Script" uid="uid://d4dpyp5mxmeq8" path="res://obj/entity/playerhand.gd" id="7_gkarv"]
 [ext_resource type="Texture2D" uid="uid://w5ukyfhkqpru" path="res://img/bodies/player/Oguzok_hand.png" id="8_h7hxr"]
+[ext_resource type="AudioStream" uid="uid://cw1ehadqud0lk" path="res://snd/SFX/5402094785555107349.ogg" id="9_3nmum"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3nav"]
 atlas = ExtResource("4_h7hxr")
@@ -101,9 +103,14 @@ frame_progress = 0.8721145
 [node name="FSM" parent="." index="2" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Walk")
 
-[node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player")]
+[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("dsnd")]
+script = ExtResource("6_i3nav")
+dsnd = NodePath("../../death")
+
+[node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player", "sprite")]
 script = ExtResource("6_cn68h")
 player = NodePath("../..")
+sprite = NodePath("../../BodySprite")
 
 [node name="Hand" parent="." index="4" node_paths=PackedStringArray("player")]
 script = ExtResource("7_gkarv")
@@ -129,3 +136,9 @@ shape = SubResource("CircleShape2D_ddxsi")
 
 [node name="CollisionShape2D" parent="Pusher" index="0"]
 debug_color = Color(0.22390246, 0.6067969, 0.55894727, 0.05882353)
+
+[node name="death" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("9_3nmum")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." index="8"]
+current = true

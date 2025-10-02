@@ -22,13 +22,14 @@ var flipped = false
 	"ATTACH2": null,
 	"MUZZLE2": null,
 }
-
+signal hp_changed(hp)
 func flip():
 	flipped = !flipped
 	$BodySprite.scale.x *= -1
 
 func _on_hitbox_damaged(damage: float, damage_vec: Vector2) -> void:
 	hp -= damage
+	hp_changed.emit(hp)
 	take_knockback(damage_vec)
 	if hp <= 0:
 		$FSM.force_transition("Dead")

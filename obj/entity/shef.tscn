@@ -1,13 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://ctaryefmvilqh"]
+[gd_scene load_steps=22 format=3 uid="uid://ctaryefmvilqh"]
 
 [ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_5885n"]
 [ext_resource type="Script" uid="uid://dbkti2uu350y8" path="res://obj/entity/player.gd" id="2_d4yaj"]
 [ext_resource type="Resource" uid="uid://q55yduphiucn" path="res://res/p4controls.tres" id="3_5885n"]
 [ext_resource type="Texture2D" uid="uid://duwqlfyuu0t45" path="res://img/bodies/player/Shef.png" id="4_5885n"]
 [ext_resource type="Texture2D" uid="uid://ysyqwqnuh1rm" path="res://img/bodies/player/Shef_anim.png" id="5_d4yaj"]
+[ext_resource type="Script" uid="uid://btoxcy23ydmkg" path="res://obj/entity/dead.gd" id="6_oo0ff"]
 [ext_resource type="Script" uid="uid://b6xe7045h0k1s" path="res://obj/entity/walk_state.gd" id="6_vaqby"]
 [ext_resource type="Script" uid="uid://d4dpyp5mxmeq8" path="res://obj/entity/playerhand.gd" id="7_gcr1l"]
 [ext_resource type="Texture2D" uid="uid://w5ukyfhkqpru" path="res://img/bodies/player/Oguzok_hand.png" id="8_5885n"]
+[ext_resource type="AudioStream" uid="uid://cw1ehadqud0lk" path="res://snd/SFX/5402094785555107349.ogg" id="9_d4yaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oo0ff"]
 atlas = ExtResource("4_5885n")
@@ -101,9 +103,14 @@ frame_progress = 0.352581
 [node name="FSM" parent="." index="2" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Walk")
 
-[node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player")]
+[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("dsnd")]
+script = ExtResource("6_oo0ff")
+dsnd = NodePath("../../death")
+
+[node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player", "sprite")]
 script = ExtResource("6_vaqby")
 player = NodePath("../..")
+sprite = NodePath("../../BodySprite")
 
 [node name="Hand" parent="." index="4" node_paths=PackedStringArray("player")]
 script = ExtResource("7_gcr1l")
@@ -132,3 +139,6 @@ shape = SubResource("CircleShape2D_ddxsi")
 
 [node name="CollisionShape2D" parent="Pusher" index="0"]
 debug_color = Color(0.22390246, 0.6067969, 0.55894727, 0.05882353)
+
+[node name="death" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("9_d4yaj")

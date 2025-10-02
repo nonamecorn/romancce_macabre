@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://twexuei0iw5w"]
+
+[ext_resource type="PackedScene" uid="uid://cro5ey07r4fn1" path="res://obj/components/bodies/mother_container.tscn" id="1_hdoch"]
+[ext_resource type="Texture2D" uid="uid://cfuqug00rsyei" path="res://img/items/cargo_box.png" id="2_jnjmf"]
+
+[node name="cargo_box" instance=ExtResource("1_hdoch")]
+limit = 10
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_jnjmf")
