@@ -4,6 +4,8 @@ class_name IngredientContainer
 
 var ingredients : Array[IngredientRes] = []
 var throw_force := 1000.0
+@export var limit := 3
+
 
 signal ingredients_changed
 
@@ -20,7 +22,7 @@ func enable():
 func _on_input_area_entered(area: Node2D) -> void:
 	var body = area.get_parent()
 	if body == self: return
-	if body is Ingredient:
+	if body is Ingredient and ingredients.size() < limit:
 		call_deferred("attach", body)
 
 func attach(body : Ingredient):

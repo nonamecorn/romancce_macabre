@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=19 format=4 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://ctaryefmvilqh" path="res://obj/entity/shef.tscn" id="11_tyjp7"]
 [ext_resource type="PackedScene" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
 [ext_resource type="PackedScene" uid="uid://bepyyymx85y0q" path="res://obj/guns/knife.tscn" id="12_tyjp7"]
+[ext_resource type="PackedScene" uid="uid://8kqqbepvyiji" path="res://obj/drop_pod.tscn" id="13_tyjp7"]
+[ext_resource type="PackedScene" uid="uid://ck5scllmkbo50" path="res://obj/furniture/output.tscn" id="14_1xery"]
+[ext_resource type="PackedScene" uid="uid://x1q7hnbftsrp" path="res://obj/containers/plate.tscn" id="15_q58cs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -139,12 +142,15 @@ position = Vector2(320, 208)
 
 [node name="pot" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
 position = Vector2(400, 176)
+limit = 3
 
 [node name="pot2" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
 position = Vector2(304, 144)
+limit = 3
 
 [node name="pot3" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
 position = Vector2(352, 96)
+limit = 3
 
 [node name="stove" parent="." instance=ExtResource("10_plxmq")]
 position = Vector2(96, 80)
@@ -181,3 +187,18 @@ position = Vector2(160, 240)
 
 [node name="knife2" parent="." instance=ExtResource("12_tyjp7")]
 position = Vector2(224, 272)
+
+[node name="drop_pod" parent="." instance=ExtResource("13_tyjp7")]
+position = Vector2(448, 112)
+
+[node name="mother_cooking_station" parent="." instance=ExtResource("14_1xery")]
+position = Vector2(224, 80)
+
+[node name="plate" parent="." instance=ExtResource("15_q58cs")]
+position = Vector2(96, 144)
+
+[node name="plate2" parent="." instance=ExtResource("15_q58cs")]
+position = Vector2(80, 192)
+
+[node name="plate3" parent="." instance=ExtResource("15_q58cs")]
+position = Vector2(32, 176)

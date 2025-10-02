@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck5scllmkbo50"]
+
+[ext_resource type="PackedScene" uid="uid://wr631gr8wuiw" path="res://obj/furniture/cooking_station_one.tscn" id="1_8lekg"]
+[ext_resource type="Script" uid="uid://bgvoyyh8ahvc5" path="res://obj/furniture/output.gd" id="2_ok7vu"]
+[ext_resource type="Texture2D" uid="uid://bmpoy7qfg5ulm" path="res://img/levels/output.png" id="2_w57wg"]
+
+[node name="mother_cooking_station" instance=ExtResource("1_8lekg")]
+script = ExtResource("2_ok7vu")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -6)
+texture = ExtResource("2_w57wg")

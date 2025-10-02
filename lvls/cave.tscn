@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://du0ix4us52k2r"]
+[gd_scene load_steps=13 format=3 uid="uid://du0ix4us52k2r"]
 
 [ext_resource type="Texture2D" uid="uid://c5jxnx1a3qfye" path="res://img/levels/Cave_set.png" id="1_5gmwe"]
 [ext_resource type="Script" uid="uid://dkepfpa0k3ohx" path="res://lvls/cave.gd" id="1_ac3h8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://wnr0gsewioug" path="res://obj/entity/enemies/melee_enemy.tscn" id="3_5gm8t"]
 [ext_resource type="Script" uid="uid://dw4f35p6xk10t" path="res://lvls/digger.gd" id="4_3mmwb"]
 [ext_resource type="PackedScene" uid="uid://bohlbt1dvk04d" path="res://obj/entity/enemies/pomidor.tscn" id="4_x1ghe"]
+[ext_resource type="PackedScene" uid="uid://8kqqbepvyiji" path="res://obj/drop_pod.tscn" id="5_5gm8t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3mmwb"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -402,12 +403,13 @@ sources/1 = SubResource("TileSetAtlasSource_wdghg")
 y_sort_enabled = true
 script = ExtResource("1_ac3h8")
 pool = Array[PackedScene]([ExtResource("2_ceasb"), ExtResource("3_5gm8t"), ExtResource("4_x1ghe")])
+pod = ExtResource("5_5gm8t")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1472.0
-offset_top = -608.0
-offset_right = 2448.0
-offset_bottom = 1440.0
+offset_left = -5679.0
+offset_top = -2503.0
+offset_right = 8943.0
+offset_bottom = 6529.0
 color = Color(0.45882353, 0.26666668, 0.25882354, 1)
 
 [node name="floor" type="TileMapLayer" parent="."]
@@ -457,3 +459,11 @@ tilemap = NodePath("../../floor")
 position = Vector2(480, 320)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
