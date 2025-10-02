@@ -87,6 +87,7 @@ initial_state = NodePath("Turret")
 script = ExtResource("4_uwxms")
 perceptor = NodePath("../../Perceptor")
 ray = NodePath("../../LOS_ray")
+death_ingr = null
 
 [node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
 script = ExtResource("2_ppyn0")
@@ -172,6 +173,8 @@ debug_color = Color(0.543392, 0.427697, 9.62615e-08, 0.282353)
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Perceptor" index="2"]
 position = Vector2(0, 7)
 scale = Vector2(1, 1.7)
+
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="Perceptor" index="3"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
 

@@ -11,13 +11,16 @@ var floors : Array[Vector2i]
 func _ready() -> void:
 	wall_up()
 	spawn_ememies()
-	
+	spawn_pod()
 
 func spawn_pod():
 	floors.shuffle()
 	var pod_inst = pod.instantiate()
 	pod_inst.position = (floors[0] * 32)
 	add_child(pod_inst)
+	pod_inst.load_pod(kitchen_pod)
+	kitchen_pod.load_pod(pod_inst)
+	
  
 
 func wall_up():

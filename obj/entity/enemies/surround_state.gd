@@ -31,7 +31,8 @@ func enter():
 	_on_changepath_timeout()
 
 func exit():
-	handmarker.get_child(0).stop_fire()
+	if handmarker.get_child_count() != 0:
+		handmarker.get_child(0).stop_use()
 	$attack.stop()
 	$changepath.stop()
 
@@ -56,7 +57,7 @@ func physics_update(delta):
 	enemy.move_and_slide()
 
 func _on_attack_timeout() -> void:
-	if perceptor.has_los(perceptor.target) and perceptor.is_on_screen():
+	if perceptor.has_los(perceptor.target) and perceptor.is_on_screen() and handmarker.get_child_count() != 0:
 		handmarker.get_child(0).use()
 
 func _on_changepath_timeout() -> void:

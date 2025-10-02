@@ -79,7 +79,7 @@ func _in_vision_cone(point):
 
 func has_los(los_target):
 	#if !is_instance_valid(los_target): return false
-	var ray_pos = gun_marker.get_child(0).get_pof()
+	var ray_pos = gun_marker.global_position
 	ray.global_position = ray_pos
 	var vectooor = (
 		los_target.global_position - ray_pos

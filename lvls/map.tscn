@@ -143,15 +143,12 @@ position = Vector2(320, 208)
 
 [node name="pot" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
 position = Vector2(400, 176)
-limit = 3
 
 [node name="pot2" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
 position = Vector2(304, 144)
-limit = 3
 
 [node name="pot3" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
 position = Vector2(352, 96)
-limit = 3
 
 [node name="stove" parent="." instance=ExtResource("10_plxmq")]
 position = Vector2(96, 80)
@@ -204,5 +201,6 @@ position = Vector2(80, 192)
 [node name="plate3" parent="." instance=ExtResource("15_q58cs")]
 position = Vector2(32, 176)
 
-[node name="cave" parent="." instance=ExtResource("16_ie3xl")]
+[node name="cave" parent="." node_paths=PackedStringArray("kitchen_pod") instance=ExtResource("16_ie3xl")]
 position = Vector2(1312, 4240)
+kitchen_pod = NodePath("../drop_pod")

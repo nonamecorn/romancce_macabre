@@ -89,6 +89,7 @@ initial_state = NodePath("Turret")
 script = ExtResource("4_3webs")
 perceptor = NodePath("../../Perceptor")
 ray = NodePath("../../LOS_ray")
+death_ingr = null
 
 [node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
 script = ExtResource("5_lf5h5")
@@ -173,6 +174,8 @@ debug_color = Color(0.654902, 0.458824, 0.643137, 0.0509804)
 [node name="hearing_coll" type="CollisionShape2D" parent="Perceptor" index="1"]
 shape = SubResource("CircleShape2D_ix6af")
 debug_color = Color(0.543392, 0.427697, 9.62615e-08, 0.282353)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Perceptor" index="2"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
 

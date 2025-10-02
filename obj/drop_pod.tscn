@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://8kqqbepvyiji"]
+[gd_scene load_steps=6 format=3 uid="uid://8kqqbepvyiji"]
 
+[ext_resource type="Script" uid="uid://ocrrbmtjioe2" path="res://obj/drop_pod.gd" id="1_hw418"]
 [ext_resource type="Texture2D" uid="uid://nypwb3ycq7t8" path="res://img/levels/Dropbod.png" id="1_jbg2n"]
 [ext_resource type="Script" uid="uid://c651yfxmdh7j0" path="res://obj/area_2d.gd" id="2_68gjs"]
 
@@ -9,6 +10,7 @@
 radius = 26.076809
 
 [node name="drop_pod" type="StaticBody2D"]
+script = ExtResource("1_hw418")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
@@ -20,6 +22,8 @@ frame = 1
 shape = SubResource("CircleShape2D_jbg2n")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_68gjs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

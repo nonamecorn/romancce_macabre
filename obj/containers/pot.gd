@@ -32,6 +32,7 @@ func match_recipe():
 
 func start_cooking():
 	if !current_recipe: return
+	$TextureProgressBar.show()
 	cook_tween = create_tween()
 	cook_tween.tween_property($TextureProgressBar, "value", 100.0, current_recipe.duration)
 	cook_tween.tween_callback(cooking_finished)
@@ -41,5 +42,6 @@ func pause_cooking():
 		cook_tween.kill()
 
 func cooking_finished():
+	$TextureProgressBar.hide()
 	ingredients = current_recipe.outputs
 	match_recipe()
