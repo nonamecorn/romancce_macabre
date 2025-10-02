@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://yi3c4x1pfkxi"]
+
+[ext_resource type="PackedScene" uid="uid://c10xvkfaxkmt4" path="res://obj/components/gunplay/mother_gun.tscn" id="1_opp0f"]
+[ext_resource type="PackedScene" uid="uid://bjb1xhth25217" path="res://obj/components/proj/basic_bullet.tscn" id="2_7dmcs"]
+[ext_resource type="Texture2D" uid="uid://cry5lovl6ihi3" path="res://img/misc/Medium_casing.png" id="3_oxt8i"]
+[ext_resource type="Texture2D" uid="uid://c7w531jb1osgp" path="res://img/weapons/PulseRifle.png" id="4_opp0f"]
+
+[sub_resource type="Animation" id="Animation_q03lu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7kmd2"]
+resource_name = "fire"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ounj4"]
+_data = {
+&"RESET": SubResource("Animation_q03lu"),
+&"fire": SubResource("Animation_7kmd2")
+}
+
+[node name="pulserifle" instance=ExtResource("1_opp0f")]
+max_spread = 1.0
+min_spread = 3.0
+max_ammo = 20
+num_of_pellets = 1
+bullet_obj = ExtResource("2_7dmcs")
+brass_texture = ExtResource("3_oxt8i")
+ver_recoil = 2.0
+hor_recoil = 3.0
+noise_radius = 300.0
+player_handled = true
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_opp0f")
+hframes = 3
+
+[node name="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_ounj4")
+}
+
+[node name="POF" parent="." index="7"]
+position = Vector2(18, 0)
+
+[node name="ejector" parent="." index="8"]
+position = Vector2(-8, -4)
