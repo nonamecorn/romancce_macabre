@@ -7,7 +7,7 @@ var current_recipe : Recipe
 var cook_tween : Tween
 
 func matches(recipe : Recipe):
-	return recipe.inputs == ingredients
+	return recipe.matches(ingredients)
 
 func _ready() -> void:
 	ingredients_changed.connect(match_recipe)

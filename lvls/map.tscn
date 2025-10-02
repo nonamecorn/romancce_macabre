@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=24 format=4 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://x1q7hnbftsrp" path="res://obj/containers/plate.tscn" id="15_q58cs"]
 [ext_resource type="PackedScene" uid="uid://du0ix4us52k2r" path="res://lvls/cave.tscn" id="16_ie3xl"]
 [ext_resource type="Texture2D" uid="uid://d3g3buym2l6r0" path="res://img/items/howtospaghetti .png" id="17_4vclt"]
+[ext_resource type="PackedScene" uid="uid://wr3x0n1wfx4f" path="res://obj/entity/cornelius.tscn" id="18_ajnks"]
+[ext_resource type="PackedScene" uid="uid://c1nm243uchc6w" path="res://obj/entity/grloc.tscn" id="19_rmre4"]
+[ext_resource type="PackedScene" uid="uid://6dum362dqp5s" path="res://obj/entity/pomidor.tscn" id="20_2mgel"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -209,3 +212,15 @@ position = Vector2(32, 176)
 [node name="howtospaghetti" type="Sprite2D" parent="."]
 position = Vector2(264, 52)
 texture = ExtResource("17_4vclt")
+
+[node name="ingredient_base" parent="." instance=ExtResource("18_ajnks")]
+position = Vector2(416, 240)
+
+[node name="ingredient_base2" parent="." instance=ExtResource("19_rmre4")]
+position = Vector2(368, 256)
+
+[node name="ingredient_base3" parent="." instance=ExtResource("18_ajnks")]
+position = Vector2(432, 208)
+
+[node name="ingredient_base4" parent="." instance=ExtResource("20_2mgel")]
+position = Vector2(464, 256)
