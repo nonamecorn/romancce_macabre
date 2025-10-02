@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lplryt2xix1x" path="res://lvls/forest_world.gd" id="1_jor57"]
 [ext_resource type="Texture2D" uid="uid://bv53c1h6ky2iy" path="res://img/levels/forest_floor_mock.png" id="2_viigf"]
-[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="3_viigf"]
+[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="3_viigf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuftf"]
 texture = ExtResource("2_viigf")

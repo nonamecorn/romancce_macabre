@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bms886xyd8flw"]
+
+[ext_resource type="Script" uid="uid://bcjw7gl61hcb5" path="res://obj/components/proj/basic_bullet.gd" id="1_msi72"]
+[ext_resource type="Texture2D" uid="uid://d1f5gn7ekgta4" path="res://img/weapons/Popcorn.png" id="2_msi72"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ui87o"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2hea"]
+atlas = ExtResource("2_msi72")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3o7od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2hea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BasicBullet" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 19
+script = ExtResource("1_msi72")
+speed = 900.0
+lifetime = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ui87o")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3o7od")
+frame_progress = 0.41411668
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

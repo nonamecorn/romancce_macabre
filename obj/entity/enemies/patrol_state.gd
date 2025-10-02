@@ -1,7 +1,6 @@
 extends State
 
 @export var enemy : CharacterBody2D
-@export var cursor : Node2D
 @export var hand : Node2D
 @export var hitbox : StaticBody2D
 @export var perceptor : Perceptor
@@ -41,4 +40,4 @@ func physics_update(delta : float) -> void:
 		var coll = enemy.move_and_collide(move_dir * enemy.MAX_SPEED * delta)
 		if coll:
 			move_dir = move_dir.bounce(coll.get_normal())
-	cursor.look_pos = enemy.to_global(move_dir * 5 + hand.position)
+	hand.pos = enemy.to_global(move_dir * 5 + hand.position)

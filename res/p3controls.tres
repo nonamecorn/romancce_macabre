@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerControls" load_steps=2 format=3 uid="uid://be7jvxhkpq8jr"]
+
+[ext_resource type="Script" uid="uid://dlgmjtlf10wog" path="res://res_scripts/PlayerControls.gd" id="1_3v1be"]
+
+[resource]
+script = ExtResource("1_3v1be")
+player_index = 3
+keyboard = false
+up = "p3_up"
+left = "p3_left"
+down = "p3_down"
+right = "p3_right"
+look_up = "p3_look_up"
+look_left = "p3_look_left"
+look_down = "p3_look_down"
+look_right = "p3_look_right"
+pick = "p3_grab"
+use = "p3_use"
+metadata/_custom_type_script = "uid://dlgmjtlf10wog"

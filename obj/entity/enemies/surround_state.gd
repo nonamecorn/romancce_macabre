@@ -3,7 +3,6 @@ extends State
 @export var enemy: Node2D
 @export var nav_agent: NavigationAgent2D
 @export var hand : Node2D
-@export var cursor : Node2D
 @export var handmarker : Node2D
 @export var perceptor : Perceptor
 
@@ -42,7 +41,7 @@ func get_circle_position(random) -> Vector2:
 	return(kill_circle_centre + Vector2.RIGHT.rotated(angle) * radius)
 
 func physics_update(delta):
-	cursor.look_pos = perceptor.target.global_position
+	hand.pos = perceptor.target.global_position
 	if nav_agent.is_navigation_finished():
 		_on_changepath_timeout()
 	if !perceptor.target:

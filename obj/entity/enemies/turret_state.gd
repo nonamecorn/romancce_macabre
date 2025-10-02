@@ -2,7 +2,6 @@ extends State
 
 @export var enemy : CharacterBody2D
 @export var move_speed : float = 300.0
-@export var cursor : Node2D
 @export var hand : Node2D
 @export var hitbox : StaticBody2D
 @export var perceptor : Perceptor
@@ -38,4 +37,4 @@ func update(delta : float) -> void:
 		randomize_wander()
 
 func physics_update(_delta : float) -> void:
-	cursor.look_pos = enemy.to_global(move_dir * 5 + hand.position)
+	hand.pos = enemy.to_global(move_dir * 5 + hand.position)

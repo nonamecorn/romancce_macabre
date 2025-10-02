@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://sawmnypnombt"]
+
+[ext_resource type="PackedScene" uid="uid://c10xvkfaxkmt4" path="res://obj/components/gunplay/mother_gun.tscn" id="1_mgdi0"]
+[ext_resource type="PackedScene" uid="uid://bms886xyd8flw" path="res://obj/components/proj/basic_bullet_corn.tscn" id="2_mgdi0"]
+[ext_resource type="Texture2D" uid="uid://cry5lovl6ihi3" path="res://img/misc/Medium_casing.png" id="3_6ltl8"]
+[ext_resource type="Texture2D" uid="uid://dc8ov8yckwlid" path="res://img/weapons/Corn.png" id="4_mgdi0"]
+
+[sub_resource type="Animation" id="Animation_q03lu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7kmd2"]
+resource_name = "fire"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ounj4"]
+_data = {
+&"RESET": SubResource("Animation_q03lu"),
+&"fire": SubResource("Animation_7kmd2")
+}
+
+[node name="blaster" instance=ExtResource("1_mgdi0")]
+max_spread = 1.0
+min_spread = 3.0
+max_ammo = 7
+num_of_pellets = 1
+bullet_obj = ExtResource("2_mgdi0")
+brass_texture = ExtResource("3_6ltl8")
+ver_recoil = 1.0
+hor_recoil = 2.0
+noise_radius = 300.0
+player_handled = true
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_mgdi0")
+hframes = 3
+
+[node name="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_ounj4")
+}
+
+[node name="POF" parent="." index="7"]
+position = Vector2(16, -2)
+
+[node name="ejector" parent="." index="8"]
+position = Vector2(-8, -4)

@@ -2,7 +2,6 @@ extends State
 
 @export var enemy : CharacterBody2D
 @export var nav_agent: NavigationAgent2D
-@export var cursor : Node2D
 @export var hand : Node2D
 @export var hitbox : StaticBody2D
 @export var perceptor : Perceptor
@@ -33,4 +32,4 @@ func physics_update(delta):
 	new_velocity * enemy.MAX_SPEED,delta * enemy.ACCELERATION
 	)
 	enemy.move_and_slide()
-	cursor.look_pos = enemy.to_global(new_velocity * 5 + hand.position)
+	hand.pos = enemy.to_global(new_velocity * 5 + hand.position)
