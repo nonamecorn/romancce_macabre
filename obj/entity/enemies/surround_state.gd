@@ -13,11 +13,15 @@ var last_known_position : Vector2
 func _ready() -> void:
 	#handmarker.get_child(0).loaded.connect(reloading)
 	perceptor.lost_target.connect(loss)
+	perceptor.in_range.connect(attack)
 
 func loss():
 	#print("loss")
 	enemy.set_movement_target(last_known_position)
 	transitioned.emit(self, "investigate")
+
+func attack():
+	transitioned.emit(self, "attack")
 
 func reloading():
 	hand.get_child(0).get_child(0).reload()

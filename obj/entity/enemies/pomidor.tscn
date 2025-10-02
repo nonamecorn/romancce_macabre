@@ -72,9 +72,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aaitq")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -115,6 +115,9 @@ group = "Raiders"
 
 [node name="hurtbox" parent="." index="0" instance=ExtResource("3_ccrs3")]
 position = Vector2(-1, -9)
+collision_layer = 0
+collision_mask = 18
+damage = 20.0
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2(0, 0)
@@ -240,6 +243,7 @@ offset_bottom = -33.0
 position = Vector2(0, -22)
 collision_mask = 10
 
+[connection signal="body_entered" from="hurtbox" to="Perceptor" method="_on_hurtbox_body_entered"]
 [connection signal="animation_finished" from="BodySprite" to="FSM/Attack" method="_on_body_sprite_animation_finished"]
 [connection signal="timeout" from="FSM/Surround/changepath" to="FSM/Surround" method="_on_changepath_timeout"]
 [connection signal="timeout" from="FSM/Surround/attack" to="FSM/Surround" method="_on_attack_timeout"]

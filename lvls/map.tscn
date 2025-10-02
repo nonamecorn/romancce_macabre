@@ -240,7 +240,7 @@ position = Vector2(464, 256)
 position = Vector2(368, 208)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 600.0
 one_shot = true
 autostart = true
 script = ExtResource("23_7jcl3")

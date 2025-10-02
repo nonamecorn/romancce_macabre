@@ -11,7 +11,8 @@ func exit():
 
 func _on_body_sprite_animation_finished() -> void:
 	hurtbox.hurt()
+	transitioned.emit(self, "patrol")
 
 
 func _on_timer_timeout() -> void:
-	transitioned.emit(self, "patrol")
+	pass

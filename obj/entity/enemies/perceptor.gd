@@ -20,6 +20,7 @@ var target : Entity = null
 
 signal enemy_spotted
 signal lost_target
+signal in_range
 #signal target_changed
 signal heard_smtng(pos : Vector2)
 
@@ -92,3 +93,8 @@ func has_los(los_target):
 
 func is_on_screen():
 	return $VisibleOnScreenNotifier2D.is_on_screen()
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.has_method("hurt"):
+		in_range.emit()
