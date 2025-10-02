@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://da4xsicqst7tg"
-path="res://.godot/imported/smallgarlic_hurt1.ogg-223e185bc78221c82c13bf3b357307e7.oggvorbisstr"
+path="res://.godot/imported/smallgarlic_hurt1.ogg-6c33e0e82619a3d3ede9d1b305a6f17e.oggvorbisstr"
 
 [deps]
 
-source_file="res://snd/SFX/smallgarlic_hurt1.ogg"
-dest_files=["res://.godot/imported/smallgarlic_hurt1.ogg-223e185bc78221c82c13bf3b357307e7.oggvorbisstr"]
+source_file="res://snd/sfx/smallgarlic_hurt1.ogg"
+dest_files=["res://.godot/imported/smallgarlic_hurt1.ogg-6c33e0e82619a3d3ede9d1b305a6f17e.oggvorbisstr"]
 
 [params]
 
