@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="IngredientRes" load_steps=3 format=3 uid="uid://bxtfivy8h632"]
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=4 format=3 uid="uid://bxtfivy8h632"]
 
 [ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="1_huel7"]
-[ext_resource type="Texture2D" uid="uid://d1f5gn7ekgta4" path="res://img/weapons/Popcorn.png" id="2_lj8q4"]
+[ext_resource type="Texture2D" uid="uid://bc54gwqeddn0x" path="res://img/items/4sno4ok_cut.png" id="1_lj8q4"]
+[ext_resource type="Texture2D" uid="uid://crtb8ahmqvpjq" path="res://img/items/4sno4ok.png" id="3_0vo2y"]
 
 [resource]
 script = ExtResource("1_huel7")
-name = "Popcorn"
-texture = ExtResource("2_lj8q4")
+name = "Garlic"
+texture = ExtResource("3_0vo2y")
+chopped_tex = ExtResource("1_lj8q4")
 metadata/_custom_type_script = "uid://bsjox2yixf52y"

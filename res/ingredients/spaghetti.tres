@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=3 format=3 uid="uid://0usny04csqfk"]
+
+[ext_resource type="Texture2D" uid="uid://plrtkak22uau" path="res://img/items/spaghetti_ready.png" id="1_wovme"]
+[ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="2_8j036"]
+
+[resource]
+script = ExtResource("2_8j036")
+name = "Spaghetti Ready "
+texture = ExtResource("1_wovme")
+chopped_tex = ExtResource("1_wovme")
+metadata/_custom_type_script = "uid://bsjox2yixf52y"

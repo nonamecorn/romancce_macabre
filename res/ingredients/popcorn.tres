@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://xo8vrqsfle77"]
+[gd_resource type="Resource" script_class="IngredientRes" load_steps=4 format=3 uid="uid://xo8vrqsfle77"]
 
+[ext_resource type="Texture2D" uid="uid://c2cokacxi5ppp" path="res://img/items/spaghetti .png" id="1_adaug"]
 [ext_resource type="Script" uid="uid://bsjox2yixf52y" path="res://res_scripts/Ingredient.gd" id="1_ig3d7"]
 [ext_resource type="Texture2D" uid="uid://d1f5gn7ekgta4" path="res://img/weapons/Popcorn.png" id="2_hx25q"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("1_ig3d7")
 name = "Popcorn"
 texture = ExtResource("2_hx25q")
+chopped_tex = ExtResource("1_adaug")
 metadata/_custom_type_script = "uid://bsjox2yixf52y"

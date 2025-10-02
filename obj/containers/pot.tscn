@@ -11,6 +11,7 @@
 [node name="pot" instance=ExtResource("1_k3oes")]
 script = ExtResource("2_4q4od")
 recipes = Array[ExtResource("3_ccxjv")]([ExtResource("4_vgtr3")])
+limit = 3
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." index="3"]
 offset_left = -16.0
