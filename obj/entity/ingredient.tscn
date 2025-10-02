@@ -12,6 +12,7 @@ radius = 14.142136
 [node name="ingredient_base" instance=ExtResource("1_ajgg6")]
 script = ExtResource("2_efotu")
 res = null
+health = 100
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_efotu")

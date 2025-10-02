@@ -9,7 +9,7 @@ extends Node
 	2: {
 		viewport = $GridContainer/SubViewportContainer/SubViewport,
 		camera = $GridContainer/SubViewportContainer/SubViewport/Camera2D2,
-		player = $GridContainer/SubViewportContainer2/SubViewport/map/Player2
+		player = $GridContainer/SubViewportContainer2/SubViewport/map/bobot
 	},
 }
 

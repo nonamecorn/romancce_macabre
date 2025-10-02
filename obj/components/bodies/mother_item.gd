@@ -4,6 +4,8 @@ extends RigidBody2D
 signal in_hand
 signal out_hand
 
+
+
 func use():
 	$AnimationPlayer.play("kill")
 func stop_use():

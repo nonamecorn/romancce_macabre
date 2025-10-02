@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=16 format=4 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bkrh617ywrwoe" path="res://obj/containers/pot.tscn" id="10_x02vt"]
 [ext_resource type="PackedScene" uid="uid://ctaryefmvilqh" path="res://obj/entity/shef.tscn" id="11_tyjp7"]
 [ext_resource type="PackedScene" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
+[ext_resource type="PackedScene" uid="uid://bepyyymx85y0q" path="res://obj/guns/knife.tscn" id="12_tyjp7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -174,3 +175,9 @@ position = Vector2(240, 208)
 
 [node name="bobot3" parent="." instance=ExtResource("11_tyjp7")]
 position = Vector2(368, 160)
+
+[node name="knife" parent="." instance=ExtResource("12_tyjp7")]
+position = Vector2(160, 240)
+
+[node name="knife2" parent="." instance=ExtResource("12_tyjp7")]
+position = Vector2(224, 272)

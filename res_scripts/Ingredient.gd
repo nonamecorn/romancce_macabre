@@ -4,6 +4,8 @@ extends Resource
 @export var id: StringName
 @export var name: String
 @export var texture: Texture
+@export var chopped_tex: Texture
+var chopped : bool = false
 
 static func compare(a, b) -> bool:
 	return a.id < b.id

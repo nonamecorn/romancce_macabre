@@ -100,6 +100,8 @@ position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_1mcsd")
 
 [node name="hurtbox" parent="." index="3" instance=ExtResource("3_m1tmt")]
+collision_layer = 0
+collision_mask = 18
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
