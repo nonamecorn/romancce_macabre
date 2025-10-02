@@ -1,0 +1,131 @@
+[gd_scene load_steps=20 format=3 uid="uid://c50uut326x23d"]
+
+[ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_h7hxr"]
+[ext_resource type="Script" uid="uid://dbkti2uu350y8" path="res://obj/entity/player.gd" id="2_3nmum"]
+[ext_resource type="Resource" uid="uid://be7jvxhkpq8jr" path="res://res/p3controls.tres" id="3_h7hxr"]
+[ext_resource type="Texture2D" uid="uid://v4itg2kkt5ne" path="res://img/bodies/player/Seny.png" id="4_h7hxr"]
+[ext_resource type="Texture2D" uid="uid://musmhqawos26" path="res://img/bodies/player/Seny_anim.png" id="5_3nmum"]
+[ext_resource type="Script" uid="uid://b6xe7045h0k1s" path="res://obj/entity/walk_state.gd" id="6_cn68h"]
+[ext_resource type="Script" uid="uid://d4dpyp5mxmeq8" path="res://obj/entity/playerhand.gd" id="7_gkarv"]
+[ext_resource type="Texture2D" uid="uid://w5ukyfhkqpru" path="res://img/bodies/player/Oguzok_hand.png" id="8_h7hxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3nav"]
+atlas = ExtResource("4_h7hxr")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w58g"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi03e"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn68h"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkarv"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh7tb"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgom0"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tyof"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tihtn"]
+atlas = ExtResource("5_3nmum")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25mdr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3nav")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w58g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi03e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn68h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkarv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh7tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgom0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tyof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tihtn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 16.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddxsi"]
+
+[node name="bobot" instance=ExtResource("1_h7hxr")]
+collision_layer = 2
+script = ExtResource("2_3nmum")
+moveset = ExtResource("3_h7hxr")
+
+[node name="BodySprite" parent="." index="1"]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_25mdr")
+animation = &"walk"
+frame_progress = 0.8721145
+
+[node name="FSM" parent="." index="2" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Walk")
+
+[node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player")]
+script = ExtResource("6_cn68h")
+player = NodePath("../..")
+
+[node name="Hand" parent="." index="4" node_paths=PackedStringArray("player")]
+script = ExtResource("7_gkarv")
+player = NodePath("..")
+throw_force = 500
+look_input_deadzone = 0.6
+
+[node name="Handmarker" parent="Hand" index="0"]
+position = Vector2(28, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand/Handmarker" index="0"]
+texture = ExtResource("8_h7hxr")
+
+[node name="Area2D" type="Area2D" parent="Hand/Handmarker" index="1"]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Handmarker/Area2D" index="0"]
+shape = SubResource("CircleShape2D_ddxsi")
+
+[node name="Item" type="Node2D" parent="Hand/Handmarker" index="2"]
+
+[node name="CollisionShape2D" parent="Pusher" index="0"]
+debug_color = Color(0.22390246, 0.6067969, 0.55894727, 0.05882353)

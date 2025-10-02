@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerControls" load_steps=2 format=3 uid="uid://q55yduphiucn"]
+
+[ext_resource type="Script" uid="uid://dlgmjtlf10wog" path="res://res_scripts/PlayerControls.gd" id="1_5y45r"]
+
+[resource]
+script = ExtResource("1_5y45r")
+player_index = 4
+keyboard = false
+up = "p4_up"
+left = "p4_left"
+down = "p4_down"
+right = "p4_right"
+look_up = "p4_look_up"
+look_left = "p4_look_left"
+look_down = "p4_look_down"
+look_right = "p4_look_right"
+pick = "p4_grab"
+use = "p4_use"
+metadata/_custom_type_script = "uid://dlgmjtlf10wog"

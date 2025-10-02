@@ -12,9 +12,10 @@ func flip():
 	scale.y *= -1
 
 func _process(_delta: float) -> void:
-	global_rotation = atan2(pos.y, pos.x)
-	if pos.x < 0 and !flipped:
+	var loc_pos = pos - global_position
+	global_rotation = atan2(loc_pos.y, loc_pos.x)
+	if loc_pos.x < 0 and !flipped:
 		flip()
-	if pos.x >= 0 and flipped:
+	if loc_pos.x >= 0 and flipped:
 		flip()
 	

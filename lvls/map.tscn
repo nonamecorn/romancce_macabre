@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=15 format=4 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
-[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/player.tscn" id="2_gh6g1"]
+[ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
 [ext_resource type="Resource" uid="uid://cufo4bmevjb5w" path="res://res/p2controls.tres" id="3_pbpib"]
 [ext_resource type="Texture2D" uid="uid://db6ua4a5ndb2t" path="res://img/levels/WallTileSet.png" id="5_04hbb"]
 [ext_resource type="PackedScene" uid="uid://ddov8nv6ibh26" path="res://obj/guns/blaster.tscn" id="5_adog3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://xo8vrqsfle77" path="res://res/ingredients/popcorn.tres" id="9_x02vt"]
 [ext_resource type="PackedScene" uid="uid://dehjv4ikg52cs" path="res://obj/furniture/stove.tscn" id="10_plxmq"]
 [ext_resource type="PackedScene" uid="uid://bkrh617ywrwoe" path="res://obj/containers/pot.tscn" id="10_x02vt"]
+[ext_resource type="PackedScene" uid="uid://b1d6mlonb7nwc" path="res://obj/entity/enemies/basic_enemy.tscn" id="11_plxmq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -108,7 +109,7 @@ terrain_set_0/terrain_0/color = Color(0.29546833, 0.123340644, 0.11778312, 1)
 sources/0 = SubResource("TileSetAtlasSource_b4fcx")
 sources/1 = SubResource("TileSetAtlasSource_t03gw")
 
-[node name="map" type="Node2D"]
+[node name="Kitchen" type="Node2D"]
 y_sort_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -159,3 +160,6 @@ position = Vector2(96, 80)
 
 [node name="table" parent="." instance=ExtResource("6_04hbb")]
 position = Vector2(128, 80)
+
+[node name="Enemy" parent="." instance=ExtResource("11_plxmq")]
+position = Vector2(96, 192)

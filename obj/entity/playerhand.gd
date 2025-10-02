@@ -7,12 +7,7 @@ extends EntityHand
 var item : RigidBody2D
 
 
-<<<<<<< Updated upstream
-func _process(_delta: float) -> void:
-	var pos : Vector2
-=======
 func _process(delta: float) -> void:
->>>>>>> Stashed changes
 	if player.moveset.keyboard: ## Keyboard/Mouse input handling
 		var cursor_pos = get_global_mouse_position()
 		pos = cursor_pos - global_position
