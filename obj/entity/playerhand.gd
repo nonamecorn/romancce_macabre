@@ -38,6 +38,8 @@ func _process(delta: float) -> void:
 			item.stop_use()
 func throw():
 	#Main.current_level get_tree().current_scene
+	if not item:
+		return
 	item.out_hand.emit()
 	item.reparent(Main.current_level)
 	item.scale.y = 1

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b6xe7045h0k1s" path="res://obj/entity/walk_state.gd" id="3_jlet0"]
 [ext_resource type="Texture2D" uid="uid://b1ywcahoifejc" path="res://img/bodies/player/Oguzok.png" id="4_ic86b"]
 [ext_resource type="Texture2D" uid="uid://bexik0m6oqaaa" path="res://img/bodies/player/Oguzok_anim.png" id="5_drnvc"]
-[ext_resource type="Script" uid="uid://btoxcy23ydmkg" path="res://obj/entity/dead.gd" id="6_howdq"]
+[ext_resource type="Script" path="res://obj/entity/dead.gd" id="6_howdq"]
 [ext_resource type="Script" uid="uid://d4dpyp5mxmeq8" path="res://obj/entity/playerhand.gd" id="6_yeeoh"]
 [ext_resource type="Texture2D" uid="uid://w5ukyfhkqpru" path="res://img/bodies/player/Oguzok_hand.png" id="8_m6cmv"]
 [ext_resource type="AudioStream" uid="uid://cw1ehadqud0lk" path="res://snd/SFX/5402094785555107349.ogg" id="9_rjguu"]

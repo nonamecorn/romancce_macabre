@@ -1,5 +1,7 @@
 extends Node
 
+var endgame: bool = false
+
 @onready var players = {
 	1: {
 		viewport = $GridContainer/SubViewportContainer2/SubViewport,
@@ -34,4 +36,10 @@ func _ready() -> void:
 		node.player.add_child(remote_trans)
 
 func _process(_delta: float) -> void:
-	$"CenterContainer/Label".text = str(Score.score)
+	if not endgame:
+		$"CenterContainer/Label".text = str(Score.score)
+
+func _input(event: InputEvent) -> void:
+	if endgame and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		get_tree().change_scene_to_file("res://menu/menu.tscn")
+		#get_tree().paused = false

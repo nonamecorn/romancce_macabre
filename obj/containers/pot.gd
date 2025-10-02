@@ -28,8 +28,9 @@ func match_recipe():
 	if recipe_ind != -1:
 		print("sa")
 		current_recipe = recipes[recipe_ind]
-		return
+		return true
 	current_recipe = null
+	return false
 
 func start_cooking():
 	if !current_recipe: return
@@ -44,5 +45,5 @@ func pause_cooking():
 
 func cooking_finished():
 	$TextureProgressBar.hide()
-	ingredients = current_recipe.outputs
-	match_recipe()
+	if match_recipe():
+		ingredients = current_recipe.outputs

@@ -16,6 +16,8 @@ func display(texture: Texture):
 	$sprite2.texture = texture
 
 func extract() -> IngredientRes:
+	if ingredients.is_empty():
+		return
 	$Sprite2D.frame = 1
 	display(null)
 	return ingredients.pop_front()

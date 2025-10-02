@@ -14,4 +14,12 @@ func enter():
 	hitbox_coll.disabled = true
 	wall_coll.disabled = true
 	hand.hide()
-	
+	if entity is Player:
+		hand.throw()
+
+func exit():
+	entity.velocity = Vector2.ZERO
+	sprite.rotate(-PI/2)
+	hitbox_coll.disabled = false
+	wall_coll.disabled = false
+	hand.show()

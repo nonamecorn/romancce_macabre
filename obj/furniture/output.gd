@@ -13,5 +13,5 @@ func attach(body : Item):
 	#await  get_tree().physics_frame
 
 func check_orders(ingr_res : IngredientRes):
-	if ingr_res.id == "4":
+	if ingr_res and ingr_res.id == "4":
 		Score.score += 100

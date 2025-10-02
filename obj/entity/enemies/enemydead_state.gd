@@ -10,7 +10,7 @@ func enter():
 	Score.score += 10
 	perceptor.queue_free()
 	ray.queue_free()
-	var ingr = death_ingr.instantiate()
+	var ingr = death_ingr.duplicate(true).instantiate()
 	ingr.global_position = hm.global_position
 	print(hm.global_position)
 	get_parent().get_parent().get_parent().get_parent().call_deferred("add_child",ingr)

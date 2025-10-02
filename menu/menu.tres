@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bivdkhg44272e"]
+
+[ext_resource type="FontFile" uid="uid://dtjovo0usb3x3" path="res://other/system.fnt" id="1_uouf6"]
+
+[resource]
+default_font = ExtResource("1_uouf6")
+Button/font_sizes/font_size = 76
+Button/fonts/font = ExtResource("1_uouf6")
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("1_uouf6")

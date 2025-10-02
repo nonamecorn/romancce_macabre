@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dehjv4ikg52cs" path="res://obj/furniture/stove.tscn" id="10_plxmq"]
 [ext_resource type="PackedScene" uid="uid://bkrh617ywrwoe" path="res://obj/containers/pot.tscn" id="10_x02vt"]
 [ext_resource type="PackedScene" uid="uid://ctaryefmvilqh" path="res://obj/entity/shef.tscn" id="11_tyjp7"]
-[ext_resource type="PackedScene" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
+[ext_resource type="PackedScene" uid="uid://yi3c4x1pfkxi" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
 [ext_resource type="PackedScene" uid="uid://bepyyymx85y0q" path="res://obj/guns/knife.tscn" id="12_tyjp7"]
 [ext_resource type="PackedScene" uid="uid://8kqqbepvyiji" path="res://obj/drop_pod.tscn" id="13_tyjp7"]
 [ext_resource type="PackedScene" uid="uid://ck5scllmkbo50" path="res://obj/furniture/output.tscn" id="14_1xery"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c1nm243uchc6w" path="res://obj/entity/grloc.tscn" id="19_rmre4"]
 [ext_resource type="PackedScene" uid="uid://6dum362dqp5s" path="res://obj/entity/pomidor.tscn" id="20_2mgel"]
 [ext_resource type="PackedScene" uid="uid://twexuei0iw5w" path="res://obj/cargo_box.tscn" id="21_rmre4"]
-[ext_resource type="Script" uid="uid://msye2xfhroqu" path="res://lvls/timer.gd" id="23_7jcl3"]
+[ext_resource type="Script" path="res://lvls/timer.gd" id="23_7jcl3"]
 [ext_resource type="AudioStream" uid="uid://637jl1xq7dxp" path="res://snd/Jingles/win.ogg" id="23_t6f8w"]
 [ext_resource type="AudioStream" uid="uid://brdqe1y14ipxk" path="res://snd/Jingles/lose.ogg" id="24_kl8ba"]
 [ext_resource type="Texture2D" uid="uid://dlxiuwc2mns4b" path="res://img/UI/time3.png" id="25_se0ge"]
@@ -129,6 +129,7 @@ sources/0 = SubResource("TileSetAtlasSource_b4fcx")
 sources/1 = SubResource("TileSetAtlasSource_t03gw")
 
 [node name="Kitchen" type="Node2D"]
+process_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_h8448")
 
