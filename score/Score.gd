@@ -36,3 +36,7 @@ func save_score():
 	fa.store_64(max_score)
 	fa.flush()
 	fa.close()
+
+func disconnect_all(s: Signal):
+	for c in s.get_connections():
+		s.disconnect(c)

@@ -32,3 +32,6 @@ func _ready() -> void:
 		var remote_trans := RemoteTransform2D.new()
 		remote_trans.remote_path = node.camera.get_path()
 		node.player.add_child(remote_trans)
+
+func _process(_delta: float) -> void:
+	$"CenterContainer/Label".text = Score.score
