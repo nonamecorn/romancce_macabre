@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1mamtf3m3pu7"
+path="res://.godot/imported/bossa onion.ogg-43d11a6ad483019a9e1ec093b9e0c7b1.oggvorbisstr"
+
+[deps]
+
+source_file="res://snd/Songs/bossa onion.ogg"
+dest_files=["res://.godot/imported/bossa onion.ogg-43d11a6ad483019a9e1ec093b9e0c7b1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

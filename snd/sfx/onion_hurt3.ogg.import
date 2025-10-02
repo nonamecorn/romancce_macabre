@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://ccf2mioo8262u"
-path="res://.godot/imported/onion_hurt3.ogg-7e730ed5e857dabbde57fd4bd8487a61.oggvorbisstr"
+uid="uid://31c3m4i2ya0w"
+path="res://.godot/imported/onion_hurt3.ogg-09f53a2f446cf55a5a01e3567b8f9eef.oggvorbisstr"
 
 [deps]
 
-source_file="res://snd/sfx/onion_hurt3.ogg"
-dest_files=["res://.godot/imported/onion_hurt3.ogg-7e730ed5e857dabbde57fd4bd8487a61.oggvorbisstr"]
+source_file="res://snd/SFX/onion_hurt3.ogg"
+dest_files=["res://.godot/imported/onion_hurt3.ogg-09f53a2f446cf55a5a01e3567b8f9eef.oggvorbisstr"]
 
 [params]
 

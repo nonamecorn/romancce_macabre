@@ -203,6 +203,7 @@ position = Vector2(80, 192)
 position = Vector2(32, 176)
 
 [node name="cave" parent="." node_paths=PackedStringArray("kitchen_pod") instance=ExtResource("16_ie3xl")]
+y_sort_enabled = false
 position = Vector2(1312, 4240)
 kitchen_pod = NodePath("../drop_pod")
 

@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://bpb3368tkg0nu"
-path="res://.godot/imported/tomato_hurt3.ogg-74679e453a1dbd31a3cf969dfc1f427d.oggvorbisstr"
+uid="uid://dctboftgdopc0"
+path="res://.godot/imported/tomato_hurt3.ogg-ee8182776d789de3998d6eb9ee3a4eea.oggvorbisstr"
 
 [deps]
 
-source_file="res://snd/sfx/tomato_hurt3.ogg"
-dest_files=["res://.godot/imported/tomato_hurt3.ogg-74679e453a1dbd31a3cf969dfc1f427d.oggvorbisstr"]
+source_file="res://snd/SFX/tomato_hurt3.ogg"
+dest_files=["res://.godot/imported/tomato_hurt3.ogg-ee8182776d789de3998d6eb9ee3a4eea.oggvorbisstr"]
 
 [params]
 

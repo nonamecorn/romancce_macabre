@@ -406,10 +406,10 @@ pool = Array[PackedScene]([ExtResource("2_ceasb"), ExtResource("3_5gm8t"), ExtRe
 pod = ExtResource("5_5gm8t")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -5679.0
-offset_top = -2503.0
-offset_right = 8943.0
-offset_bottom = 6529.0
+offset_left = -631.0
+offset_top = -660.0
+offset_right = 13991.0
+offset_bottom = 8372.0
 color = Color(0.45882353, 0.26666668, 0.25882354, 1)
 
 [node name="floor" type="TileMapLayer" parent="."]
@@ -421,49 +421,49 @@ tile_set = SubResource("TileSet_2ev87")
 [node name="diggers" type="Node2D" parent="."]
 
 [node name="digger" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger2" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger3" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger4" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger5" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger6" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger7" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="digger8" type="Node2D" parent="diggers" node_paths=PackedStringArray("tilemap")]
-position = Vector2(480, 320)
+position = Vector2(6528, 3563)
 script = ExtResource("4_3mmwb")
 tilemap = NodePath("../../floor")
 
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 60.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

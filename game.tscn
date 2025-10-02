@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cimt3e7arnv74"]
+[gd_scene load_steps=6 format=3 uid="uid://cimt3e7arnv74"]
 
 [ext_resource type="PackedScene" uid="uid://bmnwh28jj06kj" path="res://lvls/map.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cau8dpxk32d81" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="AudioStream" uid="uid://c1mamtf3m3pu7" path="res://snd/Songs/bossa onion.ogg" id="2_fc0e3"]
+[ext_resource type="AudioStream" uid="uid://dbfaieb72hbfu" path="res://snd/Songs/Vegebattle.ogg" id="3_7jktm"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ryrav"]
+shuffle = true
+stream_count = 2
+stream_0 = ExtResource("2_fc0e3")
+stream_1 = ExtResource("3_7jktm")
 
 [node name="Game" type="Node"]
 script = ExtResource("1_e2o6t")
 
 [node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_ryrav")
+autoplay = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15

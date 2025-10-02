@@ -110,6 +110,7 @@ radius = 152.013
 [node name="Enemy" node_paths=PackedStringArray("nav_agent") groups=["Raiders"] instance=ExtResource("1_kagjd")]
 script = ExtResource("2_fbhyk")
 nav_agent = NodePath("NavigationAgent2D")
+MAX_HP = 50.0
 group = "Raiders"
 
 [node name="hurtbox" parent="." index="0" instance=ExtResource("3_ccrs3")]

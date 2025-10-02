@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://c5ja1uqnc3n6u"
-path="res://.godot/imported/chef_hurt2.ogg-743f49cb1f1daab074119299fa6148ac.oggvorbisstr"
+uid="uid://djj05gjxw3j6y"
+path="res://.godot/imported/chef_hurt2.ogg-3eb23dd47291834011e362c38ba8bc20.oggvorbisstr"
 
 [deps]
 
-source_file="res://snd/sfx/chef_hurt2.ogg"
-dest_files=["res://.godot/imported/chef_hurt2.ogg-743f49cb1f1daab074119299fa6148ac.oggvorbisstr"]
+source_file="res://snd/SFX/chef_hurt2.ogg"
+dest_files=["res://.godot/imported/chef_hurt2.ogg-3eb23dd47291834011e362c38ba8bc20.oggvorbisstr"]
 
 [params]
 

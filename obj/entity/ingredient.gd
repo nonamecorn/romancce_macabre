@@ -6,6 +6,7 @@ class_name Ingredient
 @export var health = 100
 
 func _ready() -> void:
+	print("sagfsd")
 	$Sprite2D.texture = res.texture
 
 func use():
