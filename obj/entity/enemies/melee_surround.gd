@@ -7,6 +7,8 @@ extends State
 @export var handmarker : Node2D
 @export var perceptor : Perceptor
 
+@export var radius := 200.0
+
 var last_known_position : Vector2
 
 func _ready() -> void:
@@ -36,7 +38,6 @@ func exit():
 
 func get_circle_position(random) -> Vector2:
 	var kill_circle_centre = perceptor.target.global_position
-	var radius = 200
 	var angle = random * PI * 2;
 	return(kill_circle_centre + Vector2.RIGHT.rotated(angle) * radius)
 

@@ -7,9 +7,6 @@ extends State
 @export var retreat_length: float = 200.0
 @export var perceptor : Perceptor
 
-func _ready() -> void:
-	hand.get_child(0).get_child(0).loaded.connect(loaded)
-
 func loaded():
 	transitioned.emit(self, "surround")
 

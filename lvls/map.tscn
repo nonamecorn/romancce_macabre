@@ -1,17 +1,16 @@
-[gd_scene load_steps=16 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=15 format=4 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
-[ext_resource type="Resource" uid="uid://cufo4bmevjb5w" path="res://res/p2controls.tres" id="3_pbpib"]
 [ext_resource type="Texture2D" uid="uid://db6ua4a5ndb2t" path="res://img/levels/WallTileSet.png" id="5_04hbb"]
 [ext_resource type="PackedScene" uid="uid://ddov8nv6ibh26" path="res://obj/guns/blaster.tscn" id="5_adog3"]
 [ext_resource type="PackedScene" uid="uid://cwcanfharflmw" path="res://obj/furniture/table.tscn" id="6_04hbb"]
-[ext_resource type="PackedScene" uid="uid://c737yq40enb7n" path="res://obj/entity/ingredient.tscn" id="8_t03gw"]
-[ext_resource type="Resource" uid="uid://xo8vrqsfle77" path="res://res/ingredients/popcorn.tres" id="9_x02vt"]
+[ext_resource type="PackedScene" uid="uid://c50uut326x23d" path="res://obj/entity/senya.tscn" id="9_plxmq"]
+[ext_resource type="PackedScene" uid="uid://b4eog40gk61w" path="res://obj/entity/bobot.tscn" id="10_8nv7l"]
 [ext_resource type="PackedScene" uid="uid://dehjv4ikg52cs" path="res://obj/furniture/stove.tscn" id="10_plxmq"]
 [ext_resource type="PackedScene" uid="uid://bkrh617ywrwoe" path="res://obj/containers/pot.tscn" id="10_x02vt"]
-[ext_resource type="PackedScene" uid="uid://b1d6mlonb7nwc" path="res://obj/entity/enemies/basic_enemy.tscn" id="11_plxmq"]
-[ext_resource type="PackedScene" uid="uid://yi3c4x1pfkxi" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
+[ext_resource type="PackedScene" uid="uid://ctaryefmvilqh" path="res://obj/entity/shef.tscn" id="11_tyjp7"]
+[ext_resource type="PackedScene" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -131,39 +130,47 @@ tile_set = SubResource("TileSet_t03gw")
 [node name="Player" parent="." instance=ExtResource("2_gh6g1")]
 position = Vector2(271, 133)
 
-[node name="Player2" parent="." instance=ExtResource("2_gh6g1")]
-position = Vector2(364, 157)
-moveset = ExtResource("3_pbpib")
-
 [node name="blaster" parent="." groups=["pickable"] instance=ExtResource("5_adog3")]
 position = Vector2(256, 128)
 
 [node name="blaster2" parent="." groups=["pickable"] instance=ExtResource("5_adog3")]
 position = Vector2(320, 208)
 
-[node name="corn" parent="." groups=["pickable"] instance=ExtResource("8_t03gw")]
-position = Vector2(240, 192)
-res = ExtResource("9_x02vt")
-
-[node name="corn2" parent="." groups=["pickable"] instance=ExtResource("8_t03gw")]
-position = Vector2(336, 256)
-res = ExtResource("9_x02vt")
-
-[node name="corn3" parent="." groups=["pickable"] instance=ExtResource("8_t03gw")]
-position = Vector2(416, 256)
-res = ExtResource("9_x02vt")
-
 [node name="pot" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
-position = Vector2(128, 96)
+position = Vector2(400, 176)
+
+[node name="pot2" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
+position = Vector2(304, 144)
+
+[node name="pot3" parent="." groups=["pickable"] instance=ExtResource("10_x02vt")]
+position = Vector2(352, 96)
 
 [node name="stove" parent="." instance=ExtResource("10_plxmq")]
 position = Vector2(96, 80)
 
+[node name="stove2" parent="." instance=ExtResource("10_plxmq")]
+position = Vector2(64, 80)
+
+[node name="stove3" parent="." instance=ExtResource("10_plxmq")]
+position = Vector2(32, 80)
+
 [node name="table" parent="." instance=ExtResource("6_04hbb")]
 position = Vector2(128, 80)
 
-[node name="Enemy" parent="." instance=ExtResource("11_plxmq")]
-position = Vector2(96, 192)
+[node name="table2" parent="." instance=ExtResource("6_04hbb")]
+position = Vector2(160, 80)
+
+[node name="table3" parent="." instance=ExtResource("6_04hbb")]
+position = Vector2(192, 80)
 
 [node name="pulserifle" parent="." instance=ExtResource("12_8nv7l")]
 position = Vector2(269, 245)
+
+[node name="bobot" parent="." instance=ExtResource("9_plxmq")]
+position = Vector2(160, 192)
+
+[node name="bobot2" parent="." instance=ExtResource("10_8nv7l")]
+position = Vector2(240, 208)
+
+[node name="bobot3" parent="." instance=ExtResource("11_tyjp7")]
+position = Vector2(368, 160)

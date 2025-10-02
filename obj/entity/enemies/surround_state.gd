@@ -6,10 +6,11 @@ extends State
 @export var handmarker : Node2D
 @export var perceptor : Perceptor
 
+@export var radius := 200.0
+
 var last_known_position : Vector2
 
 func _ready() -> void:
-	handmarker.get_child(0).empty.connect(reloading)
 	#handmarker.get_child(0).loaded.connect(reloading)
 	perceptor.lost_target.connect(loss)
 
@@ -36,7 +37,6 @@ func exit():
 
 func get_circle_position(random) -> Vector2:
 	var kill_circle_centre = perceptor.target.global_position
-	var radius = 200
 	var angle = random * PI * 2;
 	return(kill_circle_centre + Vector2.RIGHT.rotated(angle) * radius)
 
@@ -57,11 +57,10 @@ func physics_update(delta):
 
 func _on_attack_timeout() -> void:
 	if perceptor.has_los(perceptor.target) and perceptor.is_on_screen():
-		handmarker.get_child(0).start_fire()
-		$burst.start()
+		handmarker.get_child(0).use()
 
 func _on_changepath_timeout() -> void:
 	enemy.set_movement_target(get_circle_position(randf()))
 
 func _on_burst_duration_timeout() -> void:
-	handmarker.get_child(0).stop_fire()
+	handmarker.get_child(0).stop_use()

@@ -1,0 +1,242 @@
+[gd_scene load_steps=30 format=3 uid="uid://bohlbt1dvk04d"]
+
+[ext_resource type="PackedScene" uid="uid://vxlnckbeqm4y" path="res://obj/components/bodies/mother_body.tscn" id="1_kagjd"]
+[ext_resource type="Script" uid="uid://kmjfkbt1bg77" path="res://obj/entity/enemies/basic_enemy.gd" id="2_fbhyk"]
+[ext_resource type="PackedScene" uid="uid://4yaklnxupf0h" path="res://obj/components/hurtbox.tscn" id="3_ccrs3"]
+[ext_resource type="Texture2D" uid="uid://chlra38mrc40p" path="res://img/bodies/enemies/Pomidor_kys.png" id="3_fbhyk"]
+[ext_resource type="Texture2D" uid="uid://bop8bqryf84ow" path="res://img/bodies/enemies/Pomidor.png" id="3_kagjd"]
+[ext_resource type="Texture2D" uid="uid://dqavqm2j8a4mp" path="res://img/bodies/enemies/Pomidor_walk.png" id="4_fbhyk"]
+[ext_resource type="Script" uid="uid://m4xjmgw4e48a" path="res://obj/entity/enemies/enemy_fsm.gd" id="5_r2lld"]
+[ext_resource type="Script" uid="uid://ifbnr5f5kyqu" path="res://obj/entity/enemies/enemydead_state.gd" id="6_pktbn"]
+[ext_resource type="Script" uid="uid://dbteipskyllwk" path="res://obj/entity/enemies/patrol_state.gd" id="7_dptw3"]
+[ext_resource type="Script" uid="uid://bpj2cni183yq0" path="res://obj/entity/enemies/turret_state.gd" id="8_odmp5"]
+[ext_resource type="Script" uid="uid://xmyx6gj5p53v" path="res://obj/entity/enemies/investigate.gd" id="9_rh52p"]
+[ext_resource type="Script" uid="uid://bsxhiboftuo1f" path="res://obj/entity/enemies/panic_state.gd" id="10_msg26"]
+[ext_resource type="Script" uid="uid://xxrswto60gno" path="res://obj/entity/enemies/retreat_state.gd" id="11_aaitq"]
+[ext_resource type="Script" uid="uid://d2eil3heten32" path="res://obj/entity/enemies/surround_state.gd" id="12_11c3b"]
+[ext_resource type="Script" uid="uid://hgi8kqr82su8" path="res://obj/entity/enemies/attack_state.gd" id="14_kagjd"]
+[ext_resource type="Script" uid="uid://cy7uuvev4cuda" path="res://obj/entity/enemies/perceptor.gd" id="15_1oeyp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpb1j"]
+radius = 28.160255
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odmp5"]
+atlas = ExtResource("3_fbhyk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh52p"]
+atlas = ExtResource("3_fbhyk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msg26"]
+atlas = ExtResource("3_fbhyk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaitq"]
+atlas = ExtResource("3_fbhyk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccrs3"]
+atlas = ExtResource("3_kagjd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpb1j"]
+atlas = ExtResource("4_fbhyk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2lld"]
+atlas = ExtResource("4_fbhyk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pktbn"]
+atlas = ExtResource("4_fbhyk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dptw3"]
+atlas = ExtResource("4_fbhyk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odmp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odmp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh52p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msg26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaitq")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccrs3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpb1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2lld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pktbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dptw3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 16.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgfm0"]
+radius = 152.013
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ix6af"]
+
+[node name="Enemy" node_paths=PackedStringArray("nav_agent") groups=["Raiders"] instance=ExtResource("1_kagjd")]
+script = ExtResource("2_fbhyk")
+nav_agent = NodePath("NavigationAgent2D")
+group = "Raiders"
+
+[node name="hurtbox" parent="." index="0" instance=ExtResource("3_ccrs3")]
+position = Vector2(-1, -9)
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_wpb1j")
+
+[node name="BodySprite" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_odmp5")
+animation = &"attack"
+autoplay = "walk"
+
+[node name="FSM" parent="." index="3" node_paths=PackedStringArray("label", "initial_state")]
+script = ExtResource("5_r2lld")
+label = NodePath("../Label")
+initial_state = NodePath("Turret")
+
+[node name="Dead" parent="FSM" index="0" node_paths=PackedStringArray("perceptor", "ray")]
+script = ExtResource("6_pktbn")
+perceptor = NodePath("../../Perceptor")
+ray = NodePath("../../LOS_ray")
+
+[node name="Patrol" type="Node" parent="FSM" index="1" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
+script = ExtResource("7_dptw3")
+enemy = NodePath("../..")
+hand = NodePath("../../Hand")
+hitbox = NodePath("../../Hitbox")
+perceptor = NodePath("../../Perceptor")
+
+[node name="Turret" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("enemy", "hand", "hitbox", "perceptor")]
+script = ExtResource("8_odmp5")
+enemy = NodePath("../..")
+hand = NodePath("../../Hand")
+hitbox = NodePath("../../Hitbox")
+perceptor = NodePath("../../Perceptor")
+
+[node name="Investigate" type="Node" parent="FSM" index="3" node_paths=PackedStringArray("enemy", "nav_agent", "hand", "hitbox", "perceptor")]
+script = ExtResource("9_rh52p")
+enemy = NodePath("../..")
+nav_agent = NodePath("../../NavigationAgent2D")
+hand = NodePath("../../Hand")
+hitbox = NodePath("../../Hitbox")
+perceptor = NodePath("../../Perceptor")
+
+[node name="Panic" type="Node" parent="FSM" index="4" node_paths=PackedStringArray("enemy", "hand", "perceptor")]
+script = ExtResource("10_msg26")
+enemy = NodePath("../..")
+hand = NodePath("../../Hand")
+perceptor = NodePath("../../Perceptor")
+
+[node name="Timer" type="Timer" parent="FSM/Panic" index="0"]
+
+[node name="Retreat" type="Node" parent="FSM" index="5" node_paths=PackedStringArray("enemy", "cover_searcher", "nav_agent", "hand", "perceptor")]
+script = ExtResource("11_aaitq")
+enemy = NodePath("../..")
+cover_searcher = NodePath("../../Perceptor/CQB_awareness")
+nav_agent = NodePath("../../NavigationAgent2D")
+hand = NodePath("../../Hand")
+perceptor = NodePath("../../Perceptor")
+
+[node name="Surround" type="Node" parent="FSM" index="7" node_paths=PackedStringArray("enemy", "nav_agent", "hand", "handmarker", "perceptor")]
+script = ExtResource("12_11c3b")
+enemy = NodePath("../..")
+nav_agent = NodePath("../../NavigationAgent2D")
+hand = NodePath("../../Hand")
+handmarker = NodePath("../../Hand/Handmarker")
+perceptor = NodePath("../../Perceptor")
+radius = 1.0
+
+[node name="changepath" type="Timer" parent="FSM/Surround" index="0"]
+
+[node name="attack" type="Timer" parent="FSM/Surround" index="1"]
+
+[node name="burst" type="Timer" parent="FSM/Surround" index="2"]
+one_shot = true
+
+[node name="Attack" type="Node" parent="FSM" index="8" node_paths=PackedStringArray("animation", "hurtbox")]
+script = ExtResource("14_kagjd")
+animation = NodePath("../../BodySprite")
+hurtbox = NodePath("../../hurtbox")
+
+[node name="Timer" type="Timer" parent="FSM/Attack" index="0"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Handmarker" parent="Hand" index="0"]
+position = Vector2(26, 0)
+
+[node name="Perceptor" type="StaticBody2D" parent="." index="7" node_paths=PackedStringArray("entity", "gun_marker", "hand", "ray")]
+position = Vector2(0, -22)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("15_1oeyp")
+entity = NodePath("..")
+gun_marker = NodePath("../Hand/Handmarker")
+hand = NodePath("../Hand")
+ray = NodePath("../LOS_ray")
+
+[node name="CQB_awareness" type="Area2D" parent="Perceptor" index="0"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Perceptor/CQB_awareness" index="0"]
+shape = SubResource("CircleShape2D_cgfm0")
+debug_color = Color(0.654902, 0.458824, 0.643137, 0.0509804)
+
+[node name="hearing_coll" type="CollisionShape2D" parent="Perceptor" index="1"]
+shape = SubResource("CircleShape2D_ix6af")
+debug_color = Color(0.543392, 0.427697, 9.62615e-08, 0.282353)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
+
+[node name="Label" type="Label" parent="." index="9"]
+offset_left = -19.0
+offset_top = -56.0
+offset_right = 21.0
+offset_bottom = -33.0
+
+[node name="LOS_ray" type="RayCast2D" parent="." index="10"]
+position = Vector2(0, -22)
+collision_mask = 10
+
+[connection signal="animation_finished" from="BodySprite" to="FSM/Attack" method="_on_body_sprite_animation_finished"]
+[connection signal="timeout" from="FSM/Surround/changepath" to="FSM/Surround" method="_on_changepath_timeout"]
+[connection signal="timeout" from="FSM/Surround/attack" to="FSM/Surround" method="_on_attack_timeout"]
+[connection signal="timeout" from="FSM/Surround/burst" to="FSM/Surround" method="_on_burst_duration_timeout"]
+[connection signal="timeout" from="FSM/Attack/Timer" to="FSM/Attack" method="_on_timer_timeout"]
+
+[editable path="hurtbox"]

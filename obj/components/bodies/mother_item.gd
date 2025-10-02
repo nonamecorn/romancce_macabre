@@ -5,9 +5,9 @@ signal in_hand
 signal out_hand
 
 func use():
-	pass
+	$AnimationPlayer.play("kill")
 func stop_use():
-	pass
+	$AnimationPlayer.stop()
 func take_knockback(knock_vec: Vector2):
 	linear_velocity += knock_vec
 func hurt(_damage, damage_vec):

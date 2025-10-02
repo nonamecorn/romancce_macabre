@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://du0ix4us52k2r"]
+[gd_scene load_steps=12 format=3 uid="uid://du0ix4us52k2r"]
 
 [ext_resource type="Texture2D" uid="uid://c5jxnx1a3qfye" path="res://img/levels/Cave_set.png" id="1_5gmwe"]
 [ext_resource type="Script" uid="uid://dkepfpa0k3ohx" path="res://lvls/cave.gd" id="1_ac3h8"]
 [ext_resource type="Texture2D" uid="uid://d1kx6dkvtwyey" path="res://img/levels/cave_wall.png" id="2_ac3h8"]
+[ext_resource type="PackedScene" uid="uid://b1d6mlonb7nwc" path="res://obj/entity/enemies/basic_enemy.tscn" id="2_ceasb"]
+[ext_resource type="PackedScene" uid="uid://wnr0gsewioug" path="res://obj/entity/enemies/melee_enemy.tscn" id="3_5gm8t"]
 [ext_resource type="Script" uid="uid://dw4f35p6xk10t" path="res://lvls/digger.gd" id="4_3mmwb"]
+[ext_resource type="PackedScene" uid="uid://bohlbt1dvk04d" path="res://obj/entity/enemies/pomidor.tscn" id="4_x1ghe"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3mmwb"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mmwb"]
 texture = ExtResource("1_5gmwe")
@@ -61,6 +70,7 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3mmwb")
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
@@ -384,12 +394,14 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "dirt"
 terrain_set_0/terrain_0/color = Color(0.71954626, 0.6140305, 0.24601704, 1)
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_3mmwb")
 sources/1 = SubResource("TileSetAtlasSource_wdghg")
 
 [node name="cave" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ac3h8")
+pool = Array[PackedScene]([ExtResource("2_ceasb"), ExtResource("3_5gm8t"), ExtResource("4_x1ghe")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1472.0
