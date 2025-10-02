@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bmnwh28jj06kj"]
+[gd_scene load_steps=21 format=4 uid="uid://bmnwh28jj06kj"]
 
 [ext_resource type="Texture2D" uid="uid://j5o0g2jxcw7p" path="res://img/levels/Wall.png" id="2_04hbb"]
 [ext_resource type="PackedScene" uid="uid://bcq71yyj1gyux" path="res://obj/entity/oguzok.tscn" id="2_gh6g1"]
@@ -10,12 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dehjv4ikg52cs" path="res://obj/furniture/stove.tscn" id="10_plxmq"]
 [ext_resource type="PackedScene" uid="uid://bkrh617ywrwoe" path="res://obj/containers/pot.tscn" id="10_x02vt"]
 [ext_resource type="PackedScene" uid="uid://ctaryefmvilqh" path="res://obj/entity/shef.tscn" id="11_tyjp7"]
-[ext_resource type="PackedScene" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
+[ext_resource type="PackedScene" uid="uid://yi3c4x1pfkxi" path="res://obj/guns/pulserifle.tscn" id="12_8nv7l"]
 [ext_resource type="PackedScene" uid="uid://bepyyymx85y0q" path="res://obj/guns/knife.tscn" id="12_tyjp7"]
 [ext_resource type="PackedScene" uid="uid://8kqqbepvyiji" path="res://obj/drop_pod.tscn" id="13_tyjp7"]
 [ext_resource type="PackedScene" uid="uid://ck5scllmkbo50" path="res://obj/furniture/output.tscn" id="14_1xery"]
 [ext_resource type="PackedScene" uid="uid://x1q7hnbftsrp" path="res://obj/containers/plate.tscn" id="15_q58cs"]
 [ext_resource type="PackedScene" uid="uid://du0ix4us52k2r" path="res://lvls/cave.tscn" id="16_ie3xl"]
+[ext_resource type="Texture2D" uid="uid://d3g3buym2l6r0" path="res://img/items/howtospaghetti .png" id="17_4vclt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fcx"]
 texture = ExtResource("5_04hbb")
@@ -204,3 +205,7 @@ position = Vector2(32, 176)
 [node name="cave" parent="." node_paths=PackedStringArray("kitchen_pod") instance=ExtResource("16_ie3xl")]
 position = Vector2(1312, 4240)
 kitchen_pod = NodePath("../drop_pod")
+
+[node name="howtospaghetti" type="Sprite2D" parent="."]
+position = Vector2(264, 52)
+texture = ExtResource("17_4vclt")
