@@ -19,7 +19,7 @@ const INPUT_CONFIG_PATH := "user://input.cfg"
 const DEFAULT_INPUT_CONFIG_PATH := "res://settings/default_input.cfg"
 
 func _ready() -> void:
-	# _regenerate_default_input_cfg(); return
+	#_regenerate_default_input_cfg(); return
 	var config_exists = FileAccess.file_exists(INPUT_CONFIG_PATH)
 	if config_exists:
 		var fa := FileAccess.open(INPUT_CONFIG_PATH, FileAccess.READ)
