@@ -18,6 +18,7 @@ func enter():
 		hand.throw()
 
 func exit():
+	entity.hp = entity.MAX_HP
 	entity.velocity = Vector2.ZERO
 	sprite.rotate(-PI/2)
 	hitbox_coll.disabled = false

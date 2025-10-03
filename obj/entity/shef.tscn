@@ -107,6 +107,10 @@ initial_state = NodePath("Walk")
 script = ExtResource("6_oo0ff")
 dsnd = NodePath("../../death")
 
+[node name="Timer" type="Timer" parent="FSM/Dead" index="0"]
+wait_time = 5.0
+one_shot = true
+
 [node name="Walk" type="Node" parent="FSM" index="2" node_paths=PackedStringArray("player", "sprite")]
 script = ExtResource("6_vaqby")
 player = NodePath("../..")
@@ -142,3 +146,5 @@ debug_color = Color(0.22390246, 0.6067969, 0.55894727, 0.05882353)
 
 [node name="death" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource("9_d4yaj")
+
+[connection signal="timeout" from="FSM/Dead/Timer" to="FSM/Dead" method="_on_timer_timeout"]

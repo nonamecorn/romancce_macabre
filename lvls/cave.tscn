@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://du0ix4us52k2r"]
 
 [ext_resource type="Texture2D" uid="uid://c5jxnx1a3qfye" path="res://img/levels/Cave_set.png" id="1_5gmwe"]
-[ext_resource type="Script" uid="uid://dkepfpa0k3ohx" path="res://lvls/cave.gd" id="1_ac3h8"]
+[ext_resource type="Script" path="res://lvls/cave.gd" id="1_ac3h8"]
 [ext_resource type="Texture2D" uid="uid://d1kx6dkvtwyey" path="res://img/levels/cave_wall.png" id="2_ac3h8"]
 [ext_resource type="PackedScene" uid="uid://b1d6mlonb7nwc" path="res://obj/entity/enemies/basic_enemy.tscn" id="2_ceasb"]
 [ext_resource type="PackedScene" uid="uid://wnr0gsewioug" path="res://obj/entity/enemies/melee_enemy.tscn" id="3_5gm8t"]
-[ext_resource type="Script" uid="uid://dw4f35p6xk10t" path="res://lvls/digger.gd" id="4_3mmwb"]
+[ext_resource type="Script" path="res://lvls/digger.gd" id="4_3mmwb"]
 [ext_resource type="PackedScene" uid="uid://bohlbt1dvk04d" path="res://obj/entity/enemies/pomidor.tscn" id="4_x1ghe"]
 [ext_resource type="PackedScene" uid="uid://8kqqbepvyiji" path="res://obj/drop_pod.tscn" id="5_5gm8t"]
 

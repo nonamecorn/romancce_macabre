@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ohhhmu82wh1" path="res://img/UI/Gun_hp.png" id="9_8aa68"]
 [ext_resource type="Script" uid="uid://c422lqln78oq5" path="res://obj/components/bodies/pusher.gd" id="9_rmi40"]
 [ext_resource type="Texture2D" uid="uid://cl3gpmg1bx8hr" path="res://img/UI/Gun_hp_bar.png" id="10_gskno"]
-[ext_resource type="Script" uid="uid://5857fwql8smx" path="res://obj/components/bodies/texture_progress_bar.gd" id="11_8aa68"]
+[ext_resource type="Script" path="res://obj/components/bodies/texture_progress_bar.gd" id="11_8aa68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qefb"]
 radius = 5.0
