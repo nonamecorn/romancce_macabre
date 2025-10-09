@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://bsxhiboftuo1f" path="res://obj/entity/enemies/panic_state.gd" id="10_msg26"]
 [ext_resource type="Script" uid="uid://xxrswto60gno" path="res://obj/entity/enemies/retreat_state.gd" id="11_aaitq"]
 [ext_resource type="Script" uid="uid://d2eil3heten32" path="res://obj/entity/enemies/surround_state.gd" id="12_11c3b"]
-[ext_resource type="Script" path="res://obj/entity/enemies/attack_state.gd" id="14_kagjd"]
+[ext_resource type="Script" uid="uid://hgi8kqr82su8" path="res://obj/entity/enemies/attack_state.gd" id="14_kagjd"]
 [ext_resource type="Script" uid="uid://cy7uuvev4cuda" path="res://obj/entity/enemies/perceptor.gd" id="15_1oeyp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpb1j"]
