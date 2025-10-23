@@ -21,9 +21,8 @@ var heated : bool = false:
 			pause_cooking()
 
 func match_recipe():
-	print("aus")
-	pause_cooking()
-	$TextureProgressBar.value = 0.0
+	#pause_cooking()
+	#$TextureProgressBar.value = 0.0
 	var recipe_ind = recipes.find_custom(matches)
 	if recipe_ind != -1:
 		print("sa")
@@ -33,7 +32,7 @@ func match_recipe():
 	return false
 
 func start_cooking():
-	if !current_recipe: return
+	if !match_recipe(): return
 	$TextureProgressBar.show()
 	cook_tween = create_tween()
 	cook_tween.tween_property($TextureProgressBar, "value", 100.0, current_recipe.duration)

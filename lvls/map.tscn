@@ -237,6 +237,18 @@ position = Vector2(432, 208)
 [node name="ingredient_base4" parent="." instance=ExtResource("20_2mgel")]
 position = Vector2(464, 256)
 
+[node name="ingredient_base5" parent="." instance=ExtResource("18_ajnks")]
+position = Vector2(448, 192)
+
+[node name="ingredient_base6" parent="." instance=ExtResource("19_rmre4")]
+position = Vector2(400, 208)
+
+[node name="ingredient_base7" parent="." instance=ExtResource("18_ajnks")]
+position = Vector2(464, 160)
+
+[node name="ingredient_base8" parent="." instance=ExtResource("20_2mgel")]
+position = Vector2(496, 208)
+
 [node name="cargo_box" parent="." instance=ExtResource("21_rmre4")]
 position = Vector2(368, 208)
 
